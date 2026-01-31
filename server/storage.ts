@@ -58,43 +58,42 @@ export class DatabaseStorage implements IStorage {
           location: "Hyderabad",
           duration: "April 2024 – Present",
           highlights: [
-            "Spearheaded Observability initiatives by designing Dynatrace Product Dashboards to track DAU/MAU and User Sessions; defined and implemented SLOs for Availability and Latency with Error Budget Burn Rate visualization.",
+            "Platform DevOps Engineer for Jaguar Land Rover (JLR), building an internal developer portal using the Backstage open-source project by Spotify.",
+            "Architecting automation workflows to streamline employee onboarding, access management, and repository creation using standardized boilerplate templates.",
+            "Spearheaded Observability initiatives by designing Dynatrace Product Dashboards to track DAU/MAU and User Sessions; defined and implemented SLOs with Error Budget Burn Rate visualization.",
             "Enhanced Developer Experience (DevEx) by refactoring Catalyst, Go, and Maven templates to automate repository creation and streamline Merge Request (MR) workflows in Global Digital Delivery (GDD) environments.",
-            "Resolved critical technical debt by upgrading Go boilerplates to fix Snyk vulnerabilities and standardizing error logging across 60+ backend services (Node.js/Axios) to improve debugging efficiency.",
-            "Improved platform stability by implementing robust field validations for infrastructure templates (DNS, API Proxy) and investigating Cypress automation pipelines to increase test coverage.",
-            "Authored comprehensive technical documentation and runbooks on Confluence for SLO configuration and Dashboard creation, facilitating knowledge sharing within the SRE team."
+            "Resolved critical technical debt by upgrading Go boilerplates to fix Snyk vulnerabilities and standardizing error logging across 60+ backend services."
           ]
         },
         {
           role: "Angular Developer",
-          company: "Freelance Project",
+          company: "Freelance Project (Training & Practice)",
           location: "Visakhapatnam",
           duration: "Aug 2022 – Oct 2022",
           highlights: [
-            "Developed a comprehensive MEAN stack workspace dashboard with integrated productivity tools and user management system",
-            "Implemented responsive frontend using Angular with TypeScript, featuring calculator, file transfer, Pomodoro timer, and Todo-list modules",
-            "Designed and developed RESTful APIs using Node.js and Express.js with MongoDB for efficient data persistence and retrieval",
-            "Integrated user authentication and authorization using JWT tokens with role-based access control for enhanced security"
+            "Developed a comprehensive MEAN stack workspace dashboard as part of specialized technical training.",
+            "Implemented responsive frontend using Angular with TypeScript, featuring calculator, file transfer, and productivity modules.",
+            "Designed RESTful APIs using Node.js and Express.js with MongoDB for data persistence."
           ]
         },
         {
           role: "Full Stack Angular Developer",
-          company: "Phoenix Global",
+          company: "Phoenix Global (Intensive Training)",
           location: "Hyderabad",
           duration: "Aug 2022 – Oct 2022",
           highlights: [
-            "Completed intensive three-month MEAN stack development training with hands-on project implementation",
-            "Received letter of recommendation and project completion certificates for outstanding performance"
+            "Completed specialized MEAN stack development training with hands-on project implementations.",
+            "Focused on building scalable web applications and mastering modern JavaScript frameworks."
           ]
         },
         {
           role: "Cloud Computing Trainee",
-          company: "Verzeo",
+          company: "Verzeo (AWS Training Program)",
           location: "Hyderabad",
           duration: "Jan 2022 – Apr 2022",
           highlights: [
-            "Completed comprehensive AWS cloud computing training covering EC2, S3, RDS, Lambda, and VPC configurations",
-            "Gained practical experience in cloud architecture design and deployment strategies"
+            "Completed comprehensive AWS cloud computing training covering EC2, S3, RDS, Lambda, and VPC configurations.",
+            "Gained practical experience in cloud architecture design and deployment strategies."
           ]
         }
       ]);

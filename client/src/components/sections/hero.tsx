@@ -30,8 +30,8 @@ export function Hero() {
             <span className="text-gradient">Rahul Varanasi</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
-            As a Computer Science graduate from <span className="font-medium text-foreground">GITAM University</span> and a <span className="font-medium text-foreground">DevOps Engineer at TCS</span>, I specialize in building scalable infrastructure and modern full-stack applications. I hold <span className="font-medium text-foreground">AWS Certified Cloud Practitioner</span> and <span className="font-medium text-foreground">AWS Certified Solutions Architect – Associate (SAA-C03)</span> certifications, bringing 2+ years of experience in optimizing developer workflows and cloud architecture.
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light leading-relaxed">
+            Computer Science graduate from GITAM University and currently a DevOps Engineer at TCS. I specialize in building scalable infrastructure and modern full-stack applications. As an AWS Certified Solutions Architect Associate (SAA-C03) and Practitioner, I bring hands-on experience in optimizing developer platforms and cloud architecture.
           </p>
           
           <div className="flex flex-wrap gap-4 mb-10">
@@ -80,11 +80,11 @@ export function Hero() {
             <div className="bg-card p-6 rounded-2xl border shadow-xl hover-elevate transition-all duration-500 rotate-3 hover:rotate-0 mt-8">
               <div className="h-12 w-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold mb-1">Development</h3>
-              <p className="text-sm text-muted-foreground">Full Stack / MEAN & React</p>
+              <h3 className="text-lg font-bold mb-1">Education</h3>
+              <p className="text-sm text-muted-foreground">B.Tech CSE @ GITAM University</p>
             </div>
             <div className="bg-card p-6 rounded-2xl border shadow-xl hover-elevate transition-all duration-500 -rotate-2 hover:rotate-0 col-span-2 mx-auto max-w-[80%]">
               <div className="flex items-center gap-4">
@@ -93,7 +93,7 @@ export function Hero() {
                 </div>
                 <div>
                   <h3 className="font-bold">Currently at TCS</h3>
-                  <p className="text-xs text-muted-foreground">Engineering JLR Observability Pipelines</p>
+                  <p className="text-xs text-muted-foreground">Platform DevOps Engineer (JLR)</p>
                 </div>
               </div>
             </div>

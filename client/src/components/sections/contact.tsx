@@ -67,101 +67,23 @@ export function Contact() {
         </motion.div>
 
         <div className="max-w-xl mx-auto bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 shadow-2xl">
-          {mutation.isSuccess ? (
-             <motion.div 
-               initial={{ scale: 0.8, opacity: 0 }}
-               animate={{ scale: 1, opacity: 1 }}
-               className="flex flex-col items-center justify-center py-12 text-center"
-             >
-               <div className="w-16 h-16 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mb-6">
-                 <CheckCircle2 className="w-8 h-8" />
-               </div>
-               <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
-               <p className="text-slate-300">Thanks for reaching out, I'll be in touch.</p>
-               <Button 
-                 variant="outline" 
-                 className="mt-8 border-white/20 text-white hover:bg-white/10"
-                 onClick={() => mutation.reset()}
-               >
-                 Send Another
-               </Button>
-             </motion.div>
-          ) : (
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-slate-300">Name</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Your Name" 
-                          {...field} 
-                          className="bg-slate-800/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-blue-500 focus:ring-blue-500/20 h-12 rounded-xl"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-slate-300">Email</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="you@example.com" 
-                          type="email"
-                          {...field} 
-                          className="bg-slate-800/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-blue-500 focus:ring-blue-500/20 h-12 rounded-xl"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-slate-300">Message</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="How can I help you?" 
-                          {...field} 
-                          className="bg-slate-800/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-blue-500 focus:ring-blue-500/20 min-h-[150px] resize-none rounded-xl"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <Button 
-                  type="submit" 
-                  disabled={mutation.isPending}
-                  className="w-full h-12 text-lg font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-xl shadow-lg shadow-blue-900/20 transition-all hover:scale-[1.02]"
-                >
-                  {mutation.isPending ? (
-                    <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message <Send className="ml-2 h-5 w-5" />
-                    </>
-                  )}
-                </Button>
-              </form>
-            </Form>
-          )}
+          <div className="flex flex-col items-center justify-center py-6 text-center">
+            <div className="w-16 h-16 bg-primary/20 text-primary rounded-full flex items-center justify-center mb-6">
+              <Mail className="w-8 h-8" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Direct Email</h3>
+            <p className="text-slate-300 mb-8 text-lg">
+              I've simplified the contact process. Click the button below to send me an email directly from your favorite client.
+            </p>
+            <Button 
+              asChild
+              className="w-full h-14 text-lg font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-xl shadow-lg shadow-blue-900/20 transition-all hover:scale-[1.02]"
+            >
+              <a href="mailto:rahulvaranasi04@gmail.com">
+                Email Me <Send className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+          </div>
         </div>
         
         <div className="mt-12 text-center text-slate-400">
