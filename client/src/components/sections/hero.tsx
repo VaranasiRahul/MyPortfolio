@@ -31,8 +31,7 @@ export function Hero() {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
-            DevOps Engineer & Full Stack Developer based in <span className="font-medium text-foreground">Visakhapatnam, India</span>.
-            I build scalable infrastructure and beautiful web applications.
+            As a Computer Science graduate from <span className="font-medium text-foreground">GITAM University</span> and a <span className="font-medium text-foreground">DevOps Engineer at TCS</span>, I specialize in building scalable infrastructure and modern full-stack applications. I hold <span className="font-medium text-foreground">AWS Certified Cloud Practitioner</span> and <span className="font-medium text-foreground">AWS Certified Solutions Architect – Associate (SAA-C03)</span> certifications, bringing 2+ years of experience in optimizing developer workflows and cloud architecture.
           </p>
           
           <div className="flex flex-wrap gap-4 mb-10">
@@ -68,35 +67,36 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative hidden lg:block"
         >
-          <div className="relative z-10 bg-slate-900 rounded-2xl shadow-2xl border border-slate-800 p-6 rotate-2 hover:rotate-0 transition-transform duration-500">
-             <div className="flex gap-2 mb-4">
-               <div className="w-3 h-3 rounded-full bg-red-500" />
-               <div className="w-3 h-3 rounded-full bg-yellow-500" />
-               <div className="w-3 h-3 rounded-full bg-green-500" />
-             </div>
-             <pre className="text-sm font-mono text-slate-300 overflow-hidden">
-               <code>
-{`class Developer {
-  constructor() {
-    this.name = "Rahul Varanasi";
-    this.role = ["DevOps", "FullStack"];
-    this.location = "India";
-  }
-
-  solve(problem) {
-    while(problem.exists()) {
-      this.analyze();
-      this.code();
-      this.deploy();
-    }
-    return "Solution Delivered";
-  }
-}
-
-const rahul = new Developer();
-rahul.solve(yourProblem);`}
-               </code>
-             </pre>
+          <div className="relative z-10 grid grid-cols-2 gap-4">
+            <div className="bg-card p-6 rounded-2xl border shadow-xl hover-elevate transition-all duration-500 -rotate-3 hover:rotate-0">
+              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold mb-1">Infrastructure</h3>
+              <p className="text-sm text-muted-foreground">AWS Architect Certified (SAA-C03)</p>
+            </div>
+            <div className="bg-card p-6 rounded-2xl border shadow-xl hover-elevate transition-all duration-500 rotate-3 hover:rotate-0 mt-8">
+              <div className="h-12 w-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold mb-1">Development</h3>
+              <p className="text-sm text-muted-foreground">Full Stack / MEAN & React</p>
+            </div>
+            <div className="bg-card p-6 rounded-2xl border shadow-xl hover-elevate transition-all duration-500 -rotate-2 hover:rotate-0 col-span-2 mx-auto max-w-[80%]">
+              <div className="flex items-center gap-4">
+                <div className="h-10 w-10 rounded-full bg-green-500/10 flex items-center justify-center">
+                  <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                </div>
+                <div>
+                  <h3 className="font-bold">Currently at TCS</h3>
+                  <p className="text-xs text-muted-foreground">Engineering JLR Observability Pipelines</p>
+                </div>
+              </div>
+            </div>
           </div>
           {/* Decorative elements behind */}
           <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
