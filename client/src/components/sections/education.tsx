@@ -1,7 +1,7 @@
 import { useEducation } from "@/hooks/use-portfolio";
-import { SectionHeading } from "@/components/section-heading";
 import { motion } from "framer-motion";
-import { GraduationCap, MapPin } from "lucide-react";
+import { GraduationCap, Calendar, Award } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 export function Education() {
   const { data: education, isLoading } = useEducation();
@@ -9,50 +9,83 @@ export function Education() {
   return (
     <section id="education" className="py-24 bg-background">
       <div className="container-padding">
-        <SectionHeading 
-          title="Education" 
-          subtitle="Academic background and qualifications."
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <p className="text-primary font-mono text-sm tracking-widest uppercase mb-2">Academics</p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-display">
+            Education
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Strong academic foundation in computer science and engineering
+          </p>
+        </motion.div>
 
         {isLoading ? (
-          <div className="max-w-4xl mx-auto space-y-4">
-            {[1, 2].map(i => <div key={i} className="h-32 bg-muted rounded-xl animate-pulse" />)}
+          <div className="max-w-4xl mx-auto space-y-6">
+            {[1, 2, 3].map(i => <div key={i} className="h-40 bg-muted rounded-2xl animate-pulse" />)}
           </div>
         ) : (
-          <div className="max-w-4xl mx-auto grid gap-6">
+          <div className="max-w-4xl mx-auto space-y-6">
             {education?.map((edu, index) => (
               <motion.div
                 key={edu.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex flex-col md:flex-row gap-6 items-start p-8 rounded-2xl border border-white/5 bg-card/40 backdrop-blur-md hover-elevate hover:border-primary/20 transition-all duration-300 group"
+                className="relative group"
               >
-                <div className="p-4 bg-primary/10 rounded-2xl shadow-sm border border-primary/20 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                  <GraduationCap className="w-8 h-8" />
-                </div>
-                
-                <div className="flex-grow">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3">
-                    <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">{edu.degree}</h3>
-                    <span className="px-4 py-1.5 rounded-full bg-primary/10 text-xs font-bold text-primary border border-primary/20 tracking-wider">
-                      {edu.year}
+                {index === 0 && (
+                  <div className="absolute -top-3 right-8 z-10">
+                    <span className="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                      Highest Qualification
                     </span>
                   </div>
-                  
-                  <div className="text-lg font-semibold text-foreground/90 mb-2">
-                    {edu.institution}
+                )}
+                
+                <Card className="bg-card/30 border-border/40 p-8 rounded-2xl hover-elevate group-hover:border-primary/30 transition-all duration-500 flex flex-col md:flex-row gap-8 items-start">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                    <GraduationCap className="w-7 h-7" />
                   </div>
                   
-                  <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium mb-4">
-                    <MapPin className="w-4 h-4 text-primary/60" /> {edu.location}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                      {edu.degree}
+                    </h3>
+                    
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-foreground/80 font-medium mb-4">
+                      <span>{edu.institution} — {edu.location}</span>
+                    </div>
+                    
+                    <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground mb-6">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4 text-primary/60" />
+                        {edu.year}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Award className="w-4 h-4 text-primary/60" />
+                        {edu.details.includes("CGPA") ? `CGPA: ${edu.details.split("CGPA: ")[1].split(".")[0]}` : edu.details.includes("Percentage") ? `Percentage: ${edu.details.split("Percentage: ")[1]}` : ""}
+                      </div>
+                    </div>
+
+                    {edu.id === 1 && (
+                      <div className="space-y-4 pt-4 border-t border-white/5">
+                        <p className="text-sm font-semibold text-foreground/70 uppercase tracking-wider">Relevant Coursework:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {["Agile Software Development", "Database Management Systems", "Software Testing", "Big Data Analytics", "Cloud Computing", "Web Development", "Data Structures & Algorithms"].map((course) => (
+                            <span key={course} className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-colors cursor-default">
+                              {course}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                  
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    {edu.details}
-                  </p>
-                </div>
+                </Card>
               </motion.div>
             ))}
           </div>

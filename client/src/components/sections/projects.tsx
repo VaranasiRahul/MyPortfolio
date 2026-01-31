@@ -84,18 +84,20 @@ export function Projects() {
                   </div>
 
                   <div className={`mt-8 pt-6 border-t ${project.id === 1 ? "border-emerald-500/10" : "border-white/5"}`}>
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className={`w-full py-3.5 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2 border ${
-                        project.id === 1
-                          ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500 hover:text-white"
-                          : "bg-primary/10 text-primary border-primary/20 hover:bg-primary hover:text-primary-foreground"
-                      }`}
-                    >
-                       View Documentation <ExternalLink className="w-4 h-4" />
-                    </a>
+                    {project.id !== 1 && (
+                      <a 
+                        href={project.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className={`w-full py-3.5 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2 border ${
+                          project.id === 1
+                            ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500 hover:text-white"
+                            : "bg-primary/10 text-primary border-primary/20 hover:bg-primary hover:text-primary-foreground"
+                        }`}
+                      >
+                         View Documentation <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
