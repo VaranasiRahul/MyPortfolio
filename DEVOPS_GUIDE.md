@@ -1,10 +1,9 @@
-# Local Setup and DevOps Guide
+# Local Setup and DevOps Guide (Static Site Mode)
 
 ## 1. Running Locally in VS Code
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) (v20 or higher recommended)
-- [PostgreSQL](https://www.postgresql.org/) (Installed and running)
 
 ### Steps
 1. **Extract and Open:** Extract the downloaded ZIP file and open the folder in VS Code.
@@ -12,16 +11,7 @@
    ```bash
    npm install
    ```
-3. **Environment Variables:** Create a `.env` file in the root directory:
-   ```env
-   DATABASE_URL=postgresql://username:password@localhost:5432/portfolio_db
-   SESSION_SECRET=your_random_secret_here
-   ```
-4. **Setup Database:** Push the schema to your local Postgres:
-   ```bash
-   npm run db:push
-   ```
-5. **Start Application:**
+3. **Start Application:**
    ```bash
    npm run dev
    ```
@@ -73,8 +63,8 @@ pipeline {
 }
 ```
 
-### B. Dockerfile
-Create a `Dockerfile` for containerization:
+### B. Dockerfile (Nginx Static Serving)
+Since the app is now static, we can serve it with a lightweight Nginx container:
 
 ```dockerfile
 # Build Stage
@@ -85,14 +75,11 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Production Stage
-FROM node:20-alpine
-WORKDIR /app
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
-RUN npm install --omit=dev
-EXPOSE 5000
-CMD ["npm", "start"]
+# Production Stage (Nginx)
+FROM nginx:alpine
+COPY --from=builder /app/dist/public /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 ```
 
 ### C. GitOps with ArgoCD
@@ -124,11 +111,5 @@ spec:
       - name: portfolio
         image: your-dockerhub-username/rahul-portfolio:latest
         ports:
-        - containerPort: 5000
-        env:
-        - name: DATABASE_URL
-          valueFrom:
-            secretKeyRef:
-              name: db-secret
-              key: url
+        - containerPort: 80
 ```
