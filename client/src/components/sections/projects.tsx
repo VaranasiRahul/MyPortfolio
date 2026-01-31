@@ -59,9 +59,14 @@ export function Projects() {
                   </div>
 
                   <div className="mt-8 pt-6 border-t border-white/5">
-                    <button className="w-full py-3.5 rounded-xl bg-primary/10 text-primary font-bold hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center gap-2 border border-primary/20">
-                       View Case Study <ExternalLink className="w-4 h-4" />
-                    </button>
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full py-3.5 rounded-xl bg-primary/10 text-primary font-bold hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center gap-2 border border-primary/20"
+                    >
+                       View Documentation <ExternalLink className="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
               </motion.div>

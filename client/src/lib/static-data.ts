@@ -93,9 +93,46 @@ export const projectsData = [
     title: "Jaguar Land Rover Employee Dashboard",
     role: "Frontend Development & Data Pipeline Architecture",
     duration: "April 2024 - Present",
+    link: "#",
     highlights: [
       "Frontend Development: Built responsive employee dashboard using React.js with TypeScript, implementing modern UI/UX principles and component-based architecture",
       "Data Pipeline Architecture: Designed and implemented real-time data pipelines using Google Cloud Pub/Sub and Cloud Functions for seamless data integration"
+    ]
+  },
+  {
+    id: 2,
+    title: "GITAM WEB PROJECT",
+    role: "Project Lead & Full Stack Web Developer",
+    duration: "Nov 2022 - Present",
+    link: "https://drive.google.com/file/d/1iEg4BbHKAAMDkhGvvbMDbf_j7DofEFGA/view?usp=share_link",
+    highlights: [
+      "Project lead for a team of 15 students.",
+      "Worked as Full Stack Web Developer in React.",
+      "Designed UI/UX for all web pages in Figma and Adobe Photoshop.",
+      "First official GITAM web project developed by students after going through the selection process conducted by the management."
+    ]
+  },
+  {
+    id: 3,
+    title: "Independent Full Stack Project",
+    role: "Angular Developer",
+    duration: "Aug 2022 - Oct 2022",
+    link: "https://github.com/VaranasiRahul/mean_stack_independent_project-1",
+    highlights: [
+      "Architected and developed a comprehensive MEAN stack workspace dashboard featuring integrated productivity tools.",
+      "Engineered a responsive frontend using Angular and TypeScript.",
+      "Designed and implemented RESTful APIs utilizing Node.js and Express.js with MongoDB."
+    ]
+  },
+  {
+    id: 4,
+    title: "MEAN Stack Training + Internship",
+    role: "Full Stack Angular Developer",
+    duration: "Aug 2022 - Oct 2022",
+    link: "https://drive.google.com/drive/folders/1GwDV6ZrAgYRnadbLcnT06k8nqK1vtLQ-?usp=share_link",
+    highlights: [
+      "Completed an intensive three-month MEAN stack development program.",
+      "Focused on hands-on project implementation and industry best practices."
     ]
   }
 ];
