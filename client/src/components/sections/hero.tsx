@@ -47,9 +47,9 @@ export function Hero() {
             <a 
               href="/resume.pdf" 
               target="_blank"
-              className="px-8 py-4 rounded-xl bg-white border border-border text-foreground font-semibold hover:bg-slate-50 hover:border-primary/30 transition-all flex items-center gap-2"
+              className="px-8 py-4 rounded-xl bg-secondary text-foreground font-semibold border border-border hover:bg-secondary/80 hover:border-primary/30 transition-all flex items-center gap-2"
             >
-              Download CV <Download className="w-4 h-4" />
+              Download CV <Download className="w-4 h-4 text-primary" />
             </a>
           </div>
           
