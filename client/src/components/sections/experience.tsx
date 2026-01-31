@@ -48,10 +48,10 @@ export function Experience() {
 
                   {/* Content Card */}
                   <div className="md:w-1/2">
-                    <div className="bg-card rounded-2xl p-6 shadow-sm border border-border/60 hover:shadow-md transition-shadow relative group">
+                    <div className="bg-card/40 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/5 hover:border-primary/20 transition-all duration-300 relative group hover-elevate">
                       {/* Mobile Date */}
                       <div className="md:hidden mb-4">
-                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-xs font-medium text-secondary-foreground">
+                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-xs font-semibold text-primary border border-primary/20">
                           <Calendar className="w-3 h-3" /> {role.duration}
                         </span>
                       </div>
@@ -60,19 +60,19 @@ export function Experience() {
                         {role.role}
                       </h3>
                       
-                      <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground mb-4">
-                        <span className="flex items-center gap-1">
-                          <Briefcase className="w-4 h-4" /> {role.company}
+                      <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-muted-foreground mb-4">
+                        <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-white/5 border border-white/5">
+                          <Briefcase className="w-4 h-4 text-primary" /> {role.company}
                         </span>
-                        <span className="flex items-center gap-1">
-                          <MapPin className="w-4 h-4" /> {role.location}
+                        <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-white/5 border border-white/5">
+                          <MapPin className="w-4 h-4 text-primary" /> {role.location}
                         </span>
                       </div>
                       
-                      <ul className="space-y-2">
+                      <ul className="space-y-3">
                         {role.highlights.map((highlight, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground/90">
-                            <span className="mt-1.5 min-w-[6px] h-1.5 rounded-full bg-primary/60" />
+                          <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground/90 leading-relaxed">
+                            <span className="mt-2 min-w-[6px] h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
                             {highlight}
                           </li>
                         ))}

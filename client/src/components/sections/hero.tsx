@@ -68,8 +68,8 @@ export function Hero() {
           className="relative hidden lg:block"
         >
           <div className="relative z-10 grid grid-cols-2 gap-4">
-            <div className="bg-card p-6 rounded-2xl border shadow-xl hover-elevate transition-all duration-500 -rotate-3 hover:rotate-0">
-              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+            <div className="bg-card/40 backdrop-blur-md p-6 rounded-2xl border border-primary/20 shadow-xl hover-elevate transition-all duration-500 -rotate-3 hover:rotate-0">
+              <div className="h-12 w-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4 border border-primary/30">
                 <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                 </svg>
@@ -77,23 +77,23 @@ export function Hero() {
               <h3 className="text-lg font-bold mb-1">Infrastructure</h3>
               <p className="text-sm text-muted-foreground">AWS Architect Certified (SAA-C03)</p>
             </div>
-            <div className="bg-card p-6 rounded-2xl border shadow-xl hover-elevate transition-all duration-500 rotate-3 hover:rotate-0 mt-8">
-              <div className="h-12 w-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-card/40 backdrop-blur-md p-6 rounded-2xl border border-indigo-500/20 shadow-xl hover-elevate transition-all duration-500 rotate-3 hover:rotate-0 mt-8">
+              <div className="h-12 w-12 rounded-xl bg-indigo-500/20 flex items-center justify-center mb-4 border border-indigo-500/30">
+                <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold mb-1">Education</h3>
-              <p className="text-sm text-muted-foreground">B.Tech CSE @ GITAM University</p>
+              <h3 className="text-lg font-bold mb-1 text-indigo-100">Education</h3>
+              <p className="text-sm text-indigo-300/80">B.Tech CSE @ GITAM University</p>
             </div>
-            <div className="bg-card p-6 rounded-2xl border shadow-xl hover-elevate transition-all duration-500 -rotate-2 hover:rotate-0 col-span-2 mx-auto max-w-[80%]">
+            <div className="bg-gradient-to-r from-primary/10 to-indigo-500/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-xl hover-elevate transition-all duration-500 -rotate-2 hover:rotate-0 col-span-2 mx-auto max-w-[80%]">
               <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-full bg-green-500/10 flex items-center justify-center">
-                  <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                <div className="h-10 w-10 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30">
+                  <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
                 </div>
                 <div>
-                  <h3 className="font-bold">Currently at TCS</h3>
-                  <p className="text-xs text-muted-foreground">Platform DevOps Engineer (JLR)</p>
+                  <h3 className="font-bold text-white">Currently at TCS</h3>
+                  <p className="text-xs text-green-400/90 font-medium">Platform DevOps Engineer (JLR)</p>
                 </div>
               </div>
             </div>

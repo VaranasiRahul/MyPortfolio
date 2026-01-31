@@ -18,7 +18,7 @@ export function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 bg-secondary/30">
+    <section id="skills" className="py-24 bg-background">
       <div className="container-padding">
         <SectionHeading 
           title="Technical Expertise" 
@@ -40,20 +40,20 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-card rounded-2xl p-8 shadow-sm border border-border/50 hover:shadow-lg hover:border-primary/20 transition-all duration-300 group"
+                className="bg-card/40 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/5 hover:border-primary/20 transition-all duration-300 group hover-elevate"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 border border-primary/20">
                     {getIcon(skill.category)}
                   </div>
-                  <h3 className="text-xl font-bold">{skill.category}</h3>
+                  <h3 className="text-xl font-bold text-foreground">{skill.category}</h3>
                 </div>
                 
                 <div className="flex flex-wrap gap-2">
                   {skill.items.map((item) => (
                     <span 
                       key={item} 
-                      className="px-3 py-1.5 rounded-md text-sm font-medium bg-secondary text-secondary-foreground border border-border/50"
+                      className="px-3 py-1.5 rounded-lg text-sm font-medium bg-secondary/50 text-secondary-foreground border border-white/5 group-hover:border-primary/20 transition-colors"
                     >
                       {item}
                     </span>
