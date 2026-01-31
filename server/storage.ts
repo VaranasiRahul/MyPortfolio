@@ -66,14 +66,15 @@ export class DatabaseStorage implements IStorage {
           ]
         },
         {
-          role: "Angular Developer",
-          company: "Freelance Project (Training & Practice)",
+          role: "Independent Developer",
+          company: "MEAN Stack Project",
           location: "Visakhapatnam",
           duration: "Aug 2022 – Oct 2022",
           highlights: [
-            "Developed a comprehensive MEAN stack workspace dashboard as part of specialized technical training.",
-            "Implemented responsive frontend using Angular with TypeScript, featuring calculator, file transfer, and productivity modules.",
-            "Designed RESTful APIs using Node.js and Express.js with MongoDB for data persistence."
+            "Architected and developed a comprehensive MEAN stack workspace dashboard featuring integrated productivity tools and a robust user management system.",
+            "Engineered a responsive frontend using Angular and TypeScript, incorporating functional modules such as a calculator, file transfer system, Pomodoro timer, and Todo-list.",
+            "Designed and implemented RESTful APIs utilizing Node.js and Express.js with MongoDB for efficient data persistence and retrieval.",
+            "Enhanced application security by integrating user authentication and authorization via JWT tokens with Role-Based Access Control (RBAC)."
           ]
         },
         {
@@ -82,18 +83,18 @@ export class DatabaseStorage implements IStorage {
           location: "Hyderabad",
           duration: "Aug 2022 – Oct 2022",
           highlights: [
-            "Completed specialized MEAN stack development training with hands-on project implementations.",
-            "Focused on building scalable web applications and mastering modern JavaScript frameworks."
+            "Completed an intensive three-month MEAN stack development program focused on hands-on project implementation and industry best practices.",
+            "Recognized for outstanding performance with a formal Letter of Recommendation and official project completion certificates."
           ]
         },
         {
-          role: "Cloud Computing Trainee",
-          company: "Verzeo (AWS Training Program)",
+          role: "Cloud Architecture Trainee (AWS)",
+          company: "Verzeo",
           location: "Hyderabad",
           duration: "Jan 2022 – Apr 2022",
           highlights: [
-            "Completed comprehensive AWS cloud computing training covering EC2, S3, RDS, Lambda, and VPC configurations.",
-            "Gained practical experience in cloud architecture design and deployment strategies."
+            "Successfully completed comprehensive AWS Cloud Computing training, gaining proficiency in EC2, S3, RDS, Lambda, and VPC configurations.",
+            "Acquired practical experience in designing cloud architecture and executing deployment strategies for scalable applications."
           ]
         }
       ]);
