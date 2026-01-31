@@ -39,14 +39,6 @@ export function Education() {
                 viewport={{ once: true }}
                 className="relative group"
               >
-                {index === 0 && (
-                  <div className="absolute -top-3 right-8 z-10">
-                    <span className="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-3 py-1 rounded-full backdrop-blur-md">
-                      Highest Qualification
-                    </span>
-                  </div>
-                )}
-                
                 <Card className="bg-card/30 border-border/40 p-8 rounded-2xl hover-elevate group-hover:border-primary/30 transition-all duration-500 flex flex-col md:flex-row gap-8 items-start">
                   <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                     <GraduationCap className="w-7 h-7" />
