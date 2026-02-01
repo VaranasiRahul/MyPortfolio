@@ -221,7 +221,7 @@ resource "aws_key_pair" "deployer" {
 
 resource "aws_instance" "k3s_master" {
   ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t3.micro"
+  instance_type          = "t3.small"
   subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.k3s.id]
   key_name               = aws_key_pair.deployer.key_name
@@ -244,7 +244,7 @@ resource "aws_instance" "k3s_master" {
 
 resource "aws_instance" "jenkins_ci" {
   ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t3.micro"
+  instance_type          = "t3.small"
   subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.k3s.id]
   key_name               = aws_key_pair.deployer.key_name
