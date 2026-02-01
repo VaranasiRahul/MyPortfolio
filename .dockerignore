@@ -1,0 +1,16 @@
+node_modules
+dist
+.git
+.gitignore
+*.md
+.env*
+.vscode
+.idea
+*.log
+coverage
+.DS_Store
+Thumbs.db
+terraform
+gitops
+scripts
+Jenkinsfile

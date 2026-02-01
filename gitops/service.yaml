@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: resume-showcase
+  namespace: default
+  labels:
+    app: resume-showcase
+spec:
+  type: ClusterIP
+  selector:
+    app: resume-showcase
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+    protocol: TCP
+  sessionAffinity: None
