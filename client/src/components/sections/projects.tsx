@@ -42,14 +42,20 @@ export function Projects() {
                     }`}>
                       <Code2 className="w-6 h-6" />
                     </div>
-                    <div className="flex flex-col items-end gap-2">
-                      <span className={`text-[10px] font-bold px-3 py-1 rounded-full border uppercase tracking-tighter ${
-                        project.id === 1
-                          ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-                          : "bg-blue-500/10 text-blue-400 border-blue-500/20"
-                      }`}>
-                        {project.id === 1 ? "Enterprise Project" : "Independent Project"}
-                      </span>
+                    <div className="flex flex-col items-end gap-2 max-w-[70%]">
+                      <div className="flex flex-wrap gap-1 justify-end">
+                        {project.tags?.map((tag) => (
+                          <span key={tag} className={`text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase tracking-tighter ${
+                            tag === "Jaguar Land Rover"
+                              ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/40"
+                              : project.id === 1
+                                ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                                : "bg-blue-500/10 text-blue-400 border-blue-500/20"
+                          }`}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                       <span className={`text-xs font-bold px-3 py-1.5 rounded-full border uppercase tracking-wider ${
                         project.id === 1
                           ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"

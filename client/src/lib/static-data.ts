@@ -15,6 +15,7 @@ export const experienceData = [
     company: "Tata Consultancy Services (TCS)",
     location: "Hyderabad",
     duration: "April 2024 – Present",
+    tags: ["Jaguar Land Rover", "GitLab", "Docker", "GCP Cloud", "Terraform", "Argo CD", "Kubernetes", "Dynatrace", "TypeScript", "Material UI", "JavaScript", "NodeJS", "Shell Scripting"],
     highlights: [
       "Platform DevOps Engineer for Jaguar Land Rover (JLR), building an internal developer portal using the Backstage open-source project by Spotify.",
       "Architecting automation workflows to streamline employee onboarding, access management, and repository creation using standardized boilerplate templates.",
@@ -25,15 +26,17 @@ export const experienceData = [
   },
   {
     id: 2,
-    role: "Independent Developer",
-    company: "MEAN Stack Project",
+    role: "GITAM WEB PROJECT | PROJECT LEAD",
+    company: "Internships and Projects",
     location: "Visakhapatnam",
-    duration: "Aug 2022 – Oct 2022",
+    duration: "Nov 2022 – Present",
+    tags: ["Independent Project"],
+    link: "https://drive.google.com/file/d/1iEg4BbHKAAMDkhGvvbMDbf_j7DofEFGA/view?usp=share_link",
     highlights: [
-      "Architected and developed a comprehensive MEAN stack workspace dashboard featuring integrated productivity tools and a robust user management system.",
-      "Engineered a responsive frontend using Angular and TypeScript, incorporating functional modules such as a calculator, file transfer system, Pomodoro timer, and Todo-list.",
-      "Designed and implemented RESTful APIs utilizing Node.js and Express.js with MongoDB for efficient data persistence and retrieval.",
-      "Enhanced application security by integrating user authentication and authorization via JWT tokens with Role-Based Access Control (RBAC)."
+      "Project lead for a team of 15 students.",
+      "Also worked as Full Stack Web Developer in React.",
+      "Designed UI/UX for all web pages in Figma and Adobe Photoshop.",
+      "First official GITAM web project developed by students after going through the selection process conducted by the management."
     ]
   },
   {
@@ -42,6 +45,7 @@ export const experienceData = [
     company: "Phoenix Global (Intensive Training)",
     location: "Hyderabad",
     duration: "Aug 2022 – Oct 2022",
+    tags: ["Independent Project"],
     highlights: [
       "Completed an intensive three-month MEAN stack development program focused on hands-on project implementation and industry best practices.",
       "Recognized for outstanding performance with a formal Letter of Recommendation and official project completion certificates."
@@ -53,6 +57,7 @@ export const experienceData = [
     company: "Verzeo",
     location: "Hyderabad",
     duration: "Jan 2022 – Apr 2022",
+    tags: ["Independent Project"],
     highlights: [
       "Successfully completed comprehensive AWS Cloud Computing training, gaining proficiency in EC2, S3, RDS, Lambda, and VPC configurations.",
       "Acquired practical experience in designing cloud architecture and executing deployment strategies for scalable applications."
@@ -94,6 +99,7 @@ export const projectsData = [
     role: "Frontend Development & Data Pipeline Architecture",
     duration: "April 2024 - Present",
     link: "#",
+    tags: ["Jaguar Land Rover", "GitLab", "Docker", "GCP Cloud", "Terraform", "Argo CD", "Kubernetes", "Dynatrace", "TypeScript", "Material UI", "JavaScript", "NodeJS", "Shell Scripting"],
     highlights: [
       "Frontend Development: Built responsive employee dashboard using React.js with TypeScript, implementing modern UI/UX principles and component-based architecture",
       "Data Pipeline Architecture: Designed and implemented real-time data pipelines using Google Cloud Pub/Sub and Cloud Functions for seamless data integration"

@@ -76,14 +76,31 @@ export function Experience() {
                         }`}>
                           {role.role}
                         </h3>
-                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase tracking-tighter shrink-0 ${
-                          role.id === 1
-                            ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-                            : "bg-blue-500/10 text-blue-400 border-blue-500/20"
-                        }`}>
-                          {role.id === 1 ? "Enterprise" : "Professional"}
-                        </span>
+                        <div className="flex flex-wrap gap-2 items-center">
+                          {role.tags?.map((tag) => (
+                            <span key={tag} className={`text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase tracking-tighter shrink-0 ${
+                              tag === "Jaguar Land Rover"
+                                ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/40"
+                                : role.id === 1
+                                  ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                                  : "bg-blue-500/10 text-blue-400 border-blue-500/20"
+                            }`}>
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
+                      
+                      {role.link && (
+                        <a 
+                          href={role.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-xs font-bold text-emerald-400 hover:text-emerald-300 transition-colors mb-4"
+                        >
+                          Documentation :// Drive Link (click here)
+                        </a>
+                      )}
                       
                       <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-muted-foreground mb-4">
                         <span className={`flex items-center gap-1.5 px-2 py-0.5 rounded-md border ${
