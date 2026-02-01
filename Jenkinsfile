@@ -28,21 +28,23 @@ pipeline {
             }
         }
         
-        stage('SonarCloud SAST') {
-            steps {
-                script {
-                    sh """
-                        npm ci
-                        npx sonar-scanner \
-                          -Dsonar.organization=${SONAR_ORG} \
-                          -Dsonar.projectKey=${SONAR_PROJECT} \
-                          -Dsonar.sources=client/src \
-                          -Dsonar.host.url=https://sonarcloud.io \
-                          -Dsonar.login=${SONAR_TOKEN}
-                    """
-                }
-            }
-        }
+        // SonarCloud SAST - Disabled due to memory constraints on t3.small
+        // Re-enable when upgraded to larger instance or use SonarCloud automatic analysis
+        // stage('SonarCloud SAST') {
+        //     steps {
+        //         script {
+        //             sh """
+        //                 npm ci
+        //                 npx sonar-scanner \
+        //                   -Dsonar.organization=${SONAR_ORG} \
+        //                   -Dsonar.projectKey=${SONAR_PROJECT} \
+        //                   -Dsonar.sources=client/src \
+        //                   -Dsonar.host.url=https://sonarcloud.io \
+        //                   -Dsonar.login=${SONAR_TOKEN}
+        //             """
+        //         }
+        //     }
+        // }
         
         stage('Build Docker Image') {
             steps {
