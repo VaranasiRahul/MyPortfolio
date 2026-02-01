@@ -30,7 +30,7 @@ export function Hero() {
             <span className="text-gradient">Rahul Varanasi</span>
           </h1>
           
-          <p className="text-base md:text-lg text-muted-foreground mb-8 font-medium leading-relaxed max-w-2xl">
+          <p className="text-sm md:text-base text-muted-foreground mb-8 font-medium leading-relaxed max-w-2xl">
             DevOps Engineer with 2 years of experience building CI/CD pipelines, internal developer platforms, and automation solutions to improve deployment reliability and engineering productivity. Experienced in GitLab CI/CD, containerization, observability, and infrastructure automation. Contributed to a Backstage-inspired internal developer portal enabling automated repository provisioning and access management across teams. AWS Certified Solutions Architect with strong cloud fundamentals and hands-on experience through personal projects using Jenkins, Docker, Kubernetes, ArgoCD, and AWS.
           </p>
           
