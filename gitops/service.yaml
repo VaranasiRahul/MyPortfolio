@@ -6,7 +6,7 @@ metadata:
   labels:
     app: resume-showcase
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: resume-showcase
   ports:
