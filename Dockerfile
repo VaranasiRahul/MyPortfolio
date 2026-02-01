@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci --only=production --ignore-scripts && npm cache clean --force
+RUN npm ci --ignore-scripts && npm cache clean --force
 
 COPY . .
 
