@@ -125,7 +125,7 @@ export function Projects() {
                       <img 
                         src="https://www.freepnglogos.com/uploads/land-rover-png-logo/jaguar-land-rover-sports-png-logo-3.png" 
                         alt="JLR Logo" 
-                        className="w-[180px] object-contain opacity-40 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100 -translate-x-4" 
+                        className="w-[180px] object-contain opacity-40 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100 translate-x-4" 
                       />
                     </div>
                   )}
