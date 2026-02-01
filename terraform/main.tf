@@ -155,6 +155,30 @@ resource "aws_security_group" "k3s" {
     self        = true
   }
 
+  ingress {
+    description = "ArgoCD NodePort"
+    from_port   = 30080
+    to_port     = 30080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "ArgoCD Web HTTP"
+    from_port   = 30081
+    to_port     = 30081
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "ArgoCD Web HTTPS"
+    from_port   = 30443
+    to_port     = 30443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
