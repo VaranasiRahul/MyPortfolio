@@ -45,27 +45,29 @@ export function Contact() {
           </div>
 
           {/* Follow Me */}
-          <div className="space-y-4 text-foreground">
+          <div className="space-y-4 text-foreground md:col-span-2 lg:col-span-1">
             <h3 className="text-xl font-bold mb-6">Follow Me</h3>
-            <SocialCard 
-              icon={<Github className="w-5 h-5 text-primary" />}
-              label="GitHub"
-              value="github.com/VaranasiRahul"
-              href="https://github.com/VaranasiRahul"
-            />
-            <SocialCard 
-              icon={<Linkedin className="w-5 h-5 text-primary" />}
-              label="LinkedIn"
-              value="linkedin.com/in/VaranasiRahul"
-              href="https://linkedin.com/in/VaranasiRahul"
-            />
+            <div className="grid md:grid-cols-2 lg:grid-cols-1 gap-4">
+              <SocialCard 
+                icon={<Github className="w-5 h-5 text-primary" />}
+                label="GitHub"
+                value="github.com/VaranasiRahul"
+                href="https://github.com/VaranasiRahul"
+              />
+              <SocialCard 
+                icon={<Linkedin className="w-5 h-5 text-primary" />}
+                label="LinkedIn"
+                value="linkedin.com/in/VaranasiRahul"
+                href="https://linkedin.com/in/VaranasiRahul"
+              />
+            </div>
             
-            <Card className="bg-primary/5 border-primary/20 p-6 mt-8 flex flex-col items-center text-center">
-              <h4 className="text-lg font-bold mb-2">Ready to work together?</h4>
-              <p className="text-sm text-muted-foreground mb-6">Let's discuss how I can contribute to your team</p>
+            <Card className="bg-primary/5 border-primary/20 p-8 mt-8 flex flex-col items-center text-center w-full md:col-span-2 lg:col-span-1">
+              <h4 className="text-xl font-bold mb-2">Ready to work together?</h4>
+              <p className="text-base text-muted-foreground mb-6">Let's discuss how I can contribute to your team</p>
               <Button 
                 asChild
-                className="w-full h-12 bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-xl"
+                className="w-full h-12 bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-xl border-none shadow-lg shadow-primary/20"
               >
                 <a href="mailto:rahulvaranasi04@gmail.com">
                   <Mail className="mr-2 h-4 w-4" /> Send a Message

@@ -33,7 +33,14 @@ export function Projects() {
                     : "bg-card/40 border-white/5 hover:border-primary/20"
                 }`}
               >
-                <div className={`p-8 flex flex-col h-full ${project.id === 1 ? "md:flex-row md:gap-8 md:items-center" : ""}`}>
+                <div className={`p-8 flex flex-col h-full relative ${project.id === 1 ? "md:flex-row md:gap-8 md:items-center" : ""}`}>
+                  {project.id === 1 && (
+                    <div className="absolute top-8 right-8 z-20">
+                      <span className="text-xs font-bold px-3 py-1.5 rounded-full border uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border-emerald-500/20">
+                        {project.duration}
+                      </span>
+                    </div>
+                  )}
                   <div className={`flex flex-col flex-1 ${project.id === 1 ? "md:max-w-3xl" : ""}`}>
                     <div className="flex justify-between items-start mb-6">
                       <div className={`p-3 rounded-xl transition-all duration-300 border ${
@@ -43,15 +50,17 @@ export function Projects() {
                       }`}>
                         <Code2 className="w-6 h-6" />
                       </div>
-                      <div className="flex flex-col items-end gap-2">
-                        <span className={`text-xs font-bold px-3 py-1.5 rounded-full border uppercase tracking-wider ${
-                          project.id === 1
-                            ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-                            : "bg-primary/10 text-primary border-primary/20"
-                        }`}>
-                          {project.duration}
-                        </span>
-                      </div>
+                      {project.id !== 1 && (
+                        <div className="flex flex-col items-end gap-2">
+                          <span className={`text-xs font-bold px-3 py-1.5 rounded-full border uppercase tracking-wider ${
+                            project.id === 1
+                              ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                              : "bg-primary/10 text-primary border-primary/20"
+                          }`}>
+                            {project.duration}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     <h3 className={`text-3xl font-bold mb-2 transition-colors ${
@@ -92,8 +101,8 @@ export function Projects() {
                         ))}
                       </div>
 
-                      <div className={`pt-6 border-t ${project.id === 1 ? "border-emerald-500/10" : "border-white/5"}`}>
-                        {project.id !== 1 && (
+                      {project.id !== 1 && (
+                        <div className={`pt-6 border-t ${project.id === 1 ? "border-emerald-500/10" : "border-white/5"}`}>
                           <a 
                             href={project.link} 
                             target="_blank" 
@@ -106,8 +115,8 @@ export function Projects() {
                           >
                              View Documentation <ExternalLink className="w-4 h-4" />
                           </a>
-                        )}
-                      </div>
+                        </div>
+                      )}
                     </div>
                   </div>
 
