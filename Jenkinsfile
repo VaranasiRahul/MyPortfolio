@@ -5,8 +5,8 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
         DOCKERHUB_REPO = 'rahulvaranasi/resume-showcase'
         SONAR_TOKEN = credentials('sonarcloud-token')
-        SONAR_ORG = 'your-sonar-org'
-        SONAR_PROJECT = 'your-sonar-project'
+        SONAR_ORG = 'rahulvaranasi'
+        SONAR_PROJECT = 'VaranasiRahul_MyPortfolio'
         IMAGE_TAG = "${BUILD_NUMBER}"
         TRIVY_SEVERITY = 'CRITICAL,HIGH'
     }
