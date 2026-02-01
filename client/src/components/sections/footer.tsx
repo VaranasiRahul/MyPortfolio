@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container-padding flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
           <h2 className="text-xl font-bold font-display tracking-tight text-foreground mb-1">
-            Rahul<span className="text-primary">.dev</span>
+            Rahul Varanasi
           </h2>
           <p className="text-sm text-muted-foreground">
             Building the web, one container at a time.

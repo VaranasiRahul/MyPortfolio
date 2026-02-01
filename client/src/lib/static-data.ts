@@ -29,7 +29,7 @@ export const experienceData = [
     role: "GITAM WEB PROJECT | PROJECT LEAD",
     company: "Internships and Projects",
     location: "Visakhapatnam",
-    duration: "Nov 2022 – Present",
+    duration: "Nov 2022 – Mar 2023",
     tags: ["Independent Project"],
     link: "https://drive.google.com/file/d/1iEg4BbHKAAMDkhGvvbMDbf_j7DofEFGA/view?usp=share_link",
     highlights: [

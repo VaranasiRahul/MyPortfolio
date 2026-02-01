@@ -33,7 +33,16 @@ export function Projects() {
                     : "bg-card/40 border-white/5 hover:border-primary/20"
                 }`}
               >
-                <div className={`p-8 flex flex-col h-full ${project.id === 1 ? "md:flex-row md:gap-12" : ""}`}>
+                <div className={`p-8 flex flex-col h-full ${project.id === 1 ? "md:flex-row md:gap-12 relative" : ""}`}>
+                  {project.id === 1 && (
+                    <div className="absolute top-8 right-8 w-24 opacity-60 group-hover:opacity-100 transition-opacity hidden md:block">
+                      <img 
+                        src="https://1000logos.net/wp-content/uploads/2023/08/JLR-Logo-2008.png" 
+                        alt="JLR Logo" 
+                        className="w-full h-auto grayscale brightness-200 contrast-125"
+                      />
+                    </div>
+                  )}
                   <div className={`flex flex-col flex-1 ${project.id === 1 ? "md:max-w-2xl" : ""}`}>
                     <div className="flex justify-between items-start mb-6">
                       <div className={`p-3 rounded-xl transition-all duration-300 border ${
