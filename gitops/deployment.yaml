@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: resume-showcase
-        image: your-dockerhub-username/resume-showcase:latest
+        image: rahulvaranasi/resume-showcase:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80

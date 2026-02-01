@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-username/resume-showcase.git
+    repoURL: https://github.com/rahulvaranasi/MyPortfolio.git
     targetRevision: main
     path: gitops
   destination:

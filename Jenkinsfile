@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
-        DOCKERHUB_REPO = 'your-dockerhub-username/resume-showcase'
+        DOCKERHUB_REPO = 'rahulvaranasi/resume-showcase'
         SONAR_TOKEN = credentials('sonarcloud-token')
         SONAR_ORG = 'your-sonar-org'
         SONAR_PROJECT = 'your-sonar-project'
