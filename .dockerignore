@@ -1,16 +1,73 @@
-node_modules
-dist
+#################################
+# Git
+#################################
 .git
 .gitignore
+.github
+
+#################################
+# Node / React
+#################################
+node_modules
+dist
+build
+coverage
+.cache
+.vite
+
+#################################
+# Logs
+#################################
+*.log
+logs
+
+#################################
+# Env / secrets
+#################################
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.crt
+*.pfx
+*.secrets
+terraform.tfvars
+*.tfstate
+
+#################################
+# Terraform
+#################################
+terraform/
+.terraform/
+
+#################################
+# Kubernetes / GitOps
+#################################
+gitops/
+
+#################################
+# Jenkins
+#################################
+Jenkinsfile
+jenkins_home
+workspace
+
+#################################
+# Scripts (not needed in image)
+#################################
+scripts/
+
+#################################
+# Docs / assets
+#################################
+README.md
+attached_assets/
 *.md
-.env*
+
+#################################
+# OS / IDE
+#################################
+.DS_Store
 .vscode
 .idea
-*.log
-coverage
-.DS_Store
-Thumbs.db
-terraform
-gitops
-scripts
-Jenkinsfile
