@@ -89,13 +89,6 @@ export function Experience() {
                             {role.role}
                           </h3>
                         )}
-                        {role.id === 1 && (
-                          <img 
-                            src="https://www.freepnglogos.com/uploads/land-rover-png-logo/jaguar-land-rover-sports-png-logo-3.png" 
-                            alt="JLR Logo" 
-                            className="h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity ml-2" 
-                          />
-                        )}
                       </div>
                       
                       <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-muted-foreground mb-4">

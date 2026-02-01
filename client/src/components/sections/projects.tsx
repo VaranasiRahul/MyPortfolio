@@ -33,8 +33,8 @@ export function Projects() {
                     : "bg-card/40 border-white/5 hover:border-primary/20"
                 }`}
               >
-                <div className={`p-8 flex flex-col h-full ${project.id === 1 ? "md:flex-row md:gap-12 md:items-center" : ""}`}>
-                  <div className={`flex flex-col flex-1 ${project.id === 1 ? "md:max-w-2xl" : ""}`}>
+                <div className={`p-8 flex flex-col h-full ${project.id === 1 ? "md:flex-row md:gap-8 md:items-center" : ""}`}>
+                  <div className={`flex flex-col flex-1 ${project.id === 1 ? "md:max-w-3xl" : ""}`}>
                     <div className="flex justify-between items-start mb-6">
                       <div className={`p-3 rounded-xl transition-all duration-300 border ${
                         project.id === 1
@@ -112,11 +112,11 @@ export function Projects() {
                   </div>
 
                   {project.id === 1 && (
-                    <div className="hidden md:flex flex-1 justify-center items-center p-8">
+                    <div className="hidden md:flex flex-none justify-center items-center p-4">
                       <img 
                         src="https://www.freepnglogos.com/uploads/land-rover-png-logo/jaguar-land-rover-sports-png-logo-3.png" 
                         alt="JLR Logo" 
-                        className="w-full max-w-[300px] object-contain opacity-40 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100" 
+                        className="w-[180px] object-contain opacity-40 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100" 
                       />
                     </div>
                   )}
