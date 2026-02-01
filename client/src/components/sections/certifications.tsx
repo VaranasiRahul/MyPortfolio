@@ -79,24 +79,24 @@ export function Certifications() {
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {certifications.map((cert, index) => (
-                <Card key={index} className="bg-card/50 border-border/50 p-10 hover-elevate group overflow-hidden relative min-h-[260px] flex items-center shadow-2xl shadow-emerald-500/5">
-                  <div className="absolute right-[-30px] top-1/2 -translate-y-1/2 w-64 h-64 opacity-20 group-hover:opacity-50 transition-all duration-700 rotate-12 group-hover:rotate-0 group-hover:scale-110 pointer-events-none">
-                    <img src={cert.badge} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(16,185,129,0.3)]" />
+                <Card key={index} className="bg-gradient-to-br from-emerald-500/10 via-card/50 to-emerald-950/30 border-emerald-500/20 p-12 hover-elevate group overflow-hidden relative min-h-[300px] flex items-center shadow-2xl shadow-emerald-500/10 hover:border-emerald-500/40 transition-all duration-500">
+                  <div className="absolute right-[-40px] top-1/2 -translate-y-1/2 w-72 h-72 opacity-20 group-hover:opacity-60 transition-all duration-700 rotate-12 group-hover:rotate-0 group-hover:scale-110 pointer-events-none">
+                    <img src={cert.badge} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_30px_rgba(16,185,129,0.4)]" />
                   </div>
-                  <div className="flex gap-10 items-center relative z-10 w-full">
-                    <div className="w-32 h-32 shrink-0 rounded-3xl bg-gradient-to-br from-emerald-500/20 to-emerald-900/40 flex items-center justify-center border border-emerald-500/30 group-hover:border-emerald-400/60 transition-all duration-500 shadow-2xl shadow-emerald-500/20 backdrop-blur-md">
-                      <div className="scale-[1.8] transition-transform duration-700 group-hover:scale-[2.1] drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]">{cert.icon}</div>
+                  <div className="flex gap-12 items-center relative z-10 w-full">
+                    <div className="w-40 h-40 shrink-0 rounded-[2rem] bg-gradient-to-br from-emerald-500/30 to-emerald-900/60 flex items-center justify-center border-2 border-emerald-400/40 group-hover:border-emerald-300 transition-all duration-500 shadow-2xl shadow-emerald-500/30 backdrop-blur-md">
+                      <div className="w-full h-full p-6 transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_0_20px_rgba(16,185,129,0.6)]">{cert.icon}</div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-bold text-3xl mb-3 group-hover:text-emerald-400 transition-colors leading-tight tracking-tight drop-shadow-sm">{cert.title}</h4>
-                      <p className="text-emerald-400/70 font-bold text-sm mb-8 uppercase tracking-[0.2em]">{cert.issuer}</p>
+                      <h4 className="font-black text-4xl mb-4 group-hover:text-emerald-400 transition-colors leading-tight tracking-tighter drop-shadow-xl">{cert.title}</h4>
+                      <p className="text-emerald-400 font-black text-base mb-10 uppercase tracking-[0.3em]">{cert.issuer}</p>
                       <a 
                         href={cert.link} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 text-sm font-black text-white uppercase tracking-widest bg-emerald-600 hover:bg-emerald-500 px-8 py-3.5 rounded-2xl border border-emerald-400/40 transition-all shadow-[0_10px_30px_-10px_rgba(5,150,105,0.6)] hover:-translate-y-1 active:translate-y-0"
+                        className="inline-flex items-center gap-4 text-sm font-black text-white uppercase tracking-widest bg-emerald-500 hover:bg-emerald-400 px-10 py-4 rounded-2xl border-2 border-emerald-300/50 transition-all shadow-[0_15px_40px_-10px_rgba(16,185,129,0.7)] hover:-translate-y-1 hover:scale-105 active:translate-y-0 active:scale-100"
                       >
-                        Verify Credential <ExternalLink className="w-5 h-5" />
+                        Verify Credential <ExternalLink className="w-6 h-6" />
                       </a>
                     </div>
                   </div>
