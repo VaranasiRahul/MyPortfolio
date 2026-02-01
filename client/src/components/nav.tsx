@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// @ts-ignore
 import { Link as ScrollLink } from "react-scroll";
 import { Menu, X, Code2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
