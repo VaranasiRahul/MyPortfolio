@@ -76,19 +76,6 @@ export function Experience() {
                         }`}>
                           {role.role}
                         </h3>
-                        <div className="flex flex-wrap gap-2 items-center">
-                          {role.tags?.map((tag) => (
-                            <span key={tag} className={`text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase tracking-tighter shrink-0 ${
-                              tag === "Jaguar Land Rover"
-                                ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/40"
-                                : role.id === 1
-                                  ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-                                  : "bg-blue-500/10 text-blue-400 border-blue-500/20"
-                            }`}>
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
                       </div>
                       
                       {role.link && (
@@ -115,7 +102,7 @@ export function Experience() {
                         </span>
                       </div>
                       
-                      <ul className="space-y-3">
+                      <ul className="space-y-3 mb-6">
                         {role.highlights.map((highlight, i) => (
                           <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground/90 leading-relaxed">
                             <span className={`mt-2 min-w-[6px] h-1.5 rounded-full transition-colors ${
@@ -127,6 +114,20 @@ export function Experience() {
                           </li>
                         ))}
                       </ul>
+
+                      <div className="flex flex-wrap gap-2 items-center">
+                        {role.tags?.map((tag) => (
+                          <span key={tag} className={`text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase tracking-tighter shrink-0 ${
+                            tag === "Jaguar Land Rover"
+                              ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/40"
+                              : role.id === 1
+                                ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                                : "bg-blue-500/10 text-blue-400 border-blue-500/20"
+                          }`}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
