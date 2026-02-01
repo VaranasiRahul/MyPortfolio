@@ -77,23 +77,23 @@ export function Certifications() {
               <Cloud className="w-5 h-5 text-primary" />
               <h3 className="text-xl font-bold">AWS Certifications</h3>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6">
               {certifications.map((cert, index) => (
-                <Card key={index} className="bg-gradient-to-br from-emerald-500/10 via-card/50 to-emerald-950/30 border-emerald-500/20 p-12 hover-elevate group overflow-hidden relative min-h-[300px] flex items-center shadow-2xl shadow-emerald-500/10 hover:border-emerald-500/40 transition-all duration-500">
-                  <div className="flex gap-12 items-center relative z-10 w-full">
-                    <div className="w-40 h-40 shrink-0 rounded-[2rem] bg-gradient-to-br from-emerald-500/30 to-emerald-900/60 flex items-center justify-center border-2 border-emerald-400/40 group-hover:border-emerald-300 transition-all duration-500 shadow-2xl shadow-emerald-500/30 backdrop-blur-md">
-                      <div className="w-full h-full p-6 transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_0_20px_rgba(16,185,129,0.6)]">{cert.icon}</div>
+                <Card key={index} className="bg-gradient-to-br from-emerald-500/5 via-card/50 to-emerald-950/20 border-emerald-500/20 p-8 hover-elevate group overflow-hidden relative min-h-[200px] flex items-center shadow-xl shadow-emerald-500/5 hover:border-emerald-500/40 transition-all duration-500">
+                  <div className="flex gap-8 items-center relative z-10 w-full">
+                    <div className="w-24 h-24 shrink-0 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-900/40 flex items-center justify-center border border-emerald-500/30 group-hover:border-emerald-400/50 transition-all duration-500 shadow-xl shadow-emerald-500/20 backdrop-blur-md">
+                      <div className="w-full h-full p-4 transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(16,185,129,0.4)]">{cert.icon}</div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-black text-4xl mb-4 group-hover:text-emerald-400 transition-colors leading-tight tracking-tighter drop-shadow-xl">{cert.title}</h4>
-                      <p className="text-emerald-400 font-black text-base mb-10 uppercase tracking-[0.3em]">{cert.issuer}</p>
+                      <h4 className="font-bold text-xl mb-2 group-hover:text-emerald-400 transition-colors leading-tight tracking-tight">{cert.title}</h4>
+                      <p className="text-emerald-400/80 font-bold text-xs mb-6 uppercase tracking-widest">{cert.issuer}</p>
                       <a 
                         href={cert.link} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-4 text-sm font-black text-white uppercase tracking-widest bg-emerald-500 hover:bg-emerald-400 px-10 py-4 rounded-2xl border-2 border-emerald-300/50 transition-all shadow-[0_15px_40px_-10px_rgba(16,185,129,0.7)] hover:-translate-y-1 hover:scale-105 active:translate-y-0 active:scale-100"
+                        className="inline-flex items-center gap-2 text-xs font-black text-white uppercase tracking-widest bg-emerald-600 hover:bg-emerald-500 px-6 py-2.5 rounded-xl border border-emerald-400/30 transition-all shadow-lg shadow-emerald-900/40 hover:-translate-y-0.5 active:translate-y-0"
                       >
-                        Verify Credential <ExternalLink className="w-6 h-6" />
+                        Verify Credential <ExternalLink className="w-4 h-4" />
                       </a>
                     </div>
                   </div>
