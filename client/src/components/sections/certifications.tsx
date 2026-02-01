@@ -7,14 +7,14 @@ const certifications = [
     title: "AWS Solutions Architect Associate (SAA-C03)",
     issuer: "Amazon Web Services",
     icon: <img src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/twitter_thumb_201604_image.png" alt="AWS SAA Badge" className="w-full h-full object-contain" />,
-    link: "https://www.credly.com/org/amazon-web-services/badge/aws-certified-solutions-architect-associate",
+    link: "https://www.credly.com/badges/5210018b-e5c4-4508-bc97-256006bb29d3/public_url",
     badge: "https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/twitter_thumb_201604_image.png"
   },
   {
     title: "AWS Certified Cloud Practitioner",
     issuer: "Amazon Web Services",
     icon: <img src="https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/twitter_thumb_201604_image.png" alt="AWS CCP Badge" className="w-full h-full object-contain" />,
-    link: "https://www.credly.com/org/amazon-web-services/badge/aws-certified-cloud-practitioner",
+    link: "https://www.credly.com/badges/ecc1b451-4159-44c0-9e34-29c33c1e2a4b/public_url",
     badge: "https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/twitter_thumb_201604_image.png"
   }
 ];
@@ -80,9 +80,6 @@ export function Certifications() {
             <div className="grid md:grid-cols-2 gap-8">
               {certifications.map((cert, index) => (
                 <Card key={index} className="bg-gradient-to-br from-emerald-500/10 via-card/50 to-emerald-950/30 border-emerald-500/20 p-12 hover-elevate group overflow-hidden relative min-h-[300px] flex items-center shadow-2xl shadow-emerald-500/10 hover:border-emerald-500/40 transition-all duration-500">
-                  <div className="absolute right-[-40px] top-1/2 -translate-y-1/2 w-72 h-72 opacity-20 group-hover:opacity-60 transition-all duration-700 rotate-12 group-hover:rotate-0 group-hover:scale-110 pointer-events-none">
-                    <img src={cert.badge} alt="" className="w-full h-full object-contain filter drop-shadow-[0_0_30px_rgba(16,185,129,0.4)]" />
-                  </div>
                   <div className="flex gap-12 items-center relative z-10 w-full">
                     <div className="w-40 h-40 shrink-0 rounded-[2rem] bg-gradient-to-br from-emerald-500/30 to-emerald-900/60 flex items-center justify-center border-2 border-emerald-400/40 group-hover:border-emerald-300 transition-all duration-500 shadow-2xl shadow-emerald-500/30 backdrop-blur-md">
                       <div className="w-full h-full p-6 transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_0_20px_rgba(16,185,129,0.6)]">{cert.icon}</div>
