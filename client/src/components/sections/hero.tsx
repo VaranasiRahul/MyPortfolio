@@ -75,7 +75,7 @@ export function Hero() {
                 </svg>
               </div>
               <h3 className="text-lg font-bold mb-1">Certified</h3>
-              <p className="text-sm text-muted-foreground">AWS Solutions Architect Associate (SAA-C03) & Practitioner</p>
+              <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">AWS Solutions Architect Associate & Practitioner</p>
             </div>
             <div className="bg-card/40 backdrop-blur-md p-6 rounded-2xl border border-indigo-500/20 shadow-xl hover-elevate transition-all duration-500 rotate-3 hover:rotate-0 mt-8">
               <div className="h-12 w-12 rounded-xl bg-indigo-500/20 flex items-center justify-center mb-4 border border-indigo-500/30">
