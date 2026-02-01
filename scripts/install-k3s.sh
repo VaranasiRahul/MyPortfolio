@@ -8,6 +8,7 @@ echo "Installing k3s on master node"
 
 export INSTALL_K3S_SKIP_ENABLE=false
 
+# Added quotes around arguments containing < or > to prevent Bash redirection errors
 curl -sfL https://get.k3s.io | sh -s - server \
   --write-kubeconfig-mode 644 \
   --disable traefik \
@@ -15,25 +16,28 @@ curl -sfL https://get.k3s.io | sh -s - server \
   --disable local-storage \
   --kube-apiserver-arg=default-not-ready-toleration-seconds=30 \
   --kube-apiserver-arg=default-unreachable-toleration-seconds=30 \
-  --kubelet-arg=eviction-hard=memory.available<100Mi \
-  --kubelet-arg=eviction-soft=memory.available<200Mi \
-  --kubelet-arg=eviction-soft-grace-period=memory.available=1m30s \
-  --kubelet-arg=kube-reserved=cpu=100m,memory=128Mi \
-  --kubelet-arg=system-reserved=cpu=100m,memory=128Mi
+  --kubelet-arg="eviction-hard=memory.available<100Mi" \
+  --kubelet-arg="eviction-soft=memory.available<200Mi" \
+  --kubelet-arg="eviction-soft-grace-period=memory.available=1m30s" \
+  --kubelet-arg="kube-reserved=cpu=100m,memory=128Mi" \
+  --kubelet-arg="system-reserved=cpu=100m,memory=128Mi"
 
 sudo systemctl enable k3s
 sudo systemctl start k3s
 
+# Set up kubeconfig for the current user
 mkdir -p ~/.kube
 sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 sudo chown $(id -u):$(id -g) ~/.kube/config
 
+echo "Waiting for k3s to stabilize..."
 sleep 30
 
 echo "Installing Traefik manually"
 kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v2.10/docs/content/reference/dynamic-configuration/kubernetes-crd-definition-v1.yml
 kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v2.10/docs/content/reference/dynamic-configuration/kubernetes-crd-rbac.yml
 
+# Deploy Traefik Ingress Controller
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: ServiceAccount
