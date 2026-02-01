@@ -1,6 +1,92 @@
-node_modules
-dist
+#################################
+# Node / React / Vite
+#################################
+node_modules/
+dist/
+build/
+.cache/
+.vite/
+coverage/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+#################################
+# Environment / Secrets
+#################################
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.crt
+*.pfx
+*.secrets
+secrets.yaml
+*.tfvars
+terraform.tfvars
+
+#################################
+# OS junk
+#################################
 .DS_Store
-server/public
-vite.config.ts.*
-*.tar.gz
+Thumbs.db
+
+#################################
+# IDE / Editor
+#################################
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+
+#################################
+# Docker
+#################################
+.dockerignore
+
+#################################
+# Terraform
+#################################
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+#################################
+# Kubernetes generated
+#################################
+*.kubeconfig
+
+#################################
+# Jenkins
+#################################
+jenkins_home/
+workspace/
+
+#################################
+# Logs
+#################################
+logs/
+*.log
+
+#################################
+# Testing
+#################################
+test-results/
+playwright-report/
+
+#################################
+# Misc
+#################################
+tmp/
+temp/
+*.bak
