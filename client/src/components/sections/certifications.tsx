@@ -6,16 +6,16 @@ const certifications = [
   {
     title: "AWS Solutions Architect Associate (SAA-C03)",
     issuer: "Amazon Web Services",
-    icon: <Cloud className="w-12 h-12 text-blue-500" />,
-    link: "https://drive.google.com/drive/folders/1zI3nOCrFoixYJ8jNndZCn0pqL0HaJsgk?usp=share_link",
-    badge: "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/AWS-SolArchAssociate-2020.png"
+    icon: <img src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/twitter_thumb_201604_image.png" alt="AWS SAA Badge" className="w-full h-full object-contain" />,
+    link: "https://www.credly.com/org/amazon-web-services/badge/aws-certified-solutions-architect-associate",
+    badge: "https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/twitter_thumb_201604_image.png"
   },
   {
     title: "AWS Certified Cloud Practitioner",
     issuer: "Amazon Web Services",
-    icon: <Cloud className="w-12 h-12 text-blue-400" />,
-    link: "https://drive.google.com/drive/folders/1zI3nOCrFoixYJ8jNndZCn0pqL0HaJsgk?usp=share_link",
-    badge: "https://images.credly.com/size/340x340/images/00634fca-3301-443b-81f7-e2343a41ef73/AWS-CloudPractitioner-2020.png"
+    icon: <img src="https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/twitter_thumb_201604_image.png" alt="AWS CCP Badge" className="w-full h-full object-contain" />,
+    link: "https://www.credly.com/org/amazon-web-services/badge/aws-certified-cloud-practitioner",
+    badge: "https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/twitter_thumb_201604_image.png"
   }
 ];
 
