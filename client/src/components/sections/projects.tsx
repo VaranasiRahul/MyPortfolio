@@ -1,10 +1,11 @@
-import { useProjects } from "@/hooks/use-portfolio";
+import { projectsData } from "@/lib/static-data";
 import { SectionHeading } from "@/components/section-heading";
 import { motion } from "framer-motion";
 import { ExternalLink, Code2 } from "lucide-react";
 
 export function Projects() {
-  const { data: projects, isLoading } = useProjects();
+  const projects = projectsData;
+  const isLoading = false;
 
   return (
     <section id="projects" className="py-24 bg-background">

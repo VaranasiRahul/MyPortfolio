@@ -1,10 +1,11 @@
-import { useEducation } from "@/hooks/use-portfolio";
+import { educationData } from "@/lib/static-data";
 import { motion } from "framer-motion";
 import { GraduationCap, Calendar, Award } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 export function Education() {
-  const { data: education, isLoading } = useEducation();
+  const education = educationData;
+  const isLoading = false;
 
   return (
     <section id="education" className="py-24 bg-background">
@@ -60,7 +61,7 @@ export function Education() {
                       </div>
                       <div className="flex items-center gap-2">
                         <Award className="w-4 h-4 text-primary/60" />
-                        {edu.details.includes("CGPA") ? `CGPA: ${edu.details.split("CGPA: ")[1].split(".")[0].split(" ")[0]}` : edu.details.includes("Percentage") ? `Percentage: ${edu.details.split("Percentage: ")[1].split(" ")[0]}` : ""}
+                        {edu.id === 1 ? "B.Tech" : edu.id === 2 ? "Intermediate" : "ICSE"}
                       </div>
                     </div>
 

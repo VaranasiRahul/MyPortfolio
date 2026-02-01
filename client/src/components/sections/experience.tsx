@@ -1,10 +1,11 @@
-import { useExperience } from "@/hooks/use-portfolio";
+import { experienceData } from "@/lib/static-data";
 import { SectionHeading } from "@/components/section-heading";
 import { motion } from "framer-motion";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
 
 export function Experience() {
-  const { data: experience, isLoading } = useExperience();
+  const experience = experienceData;
+  const isLoading = false;
 
   return (
     <section id="experience" className="py-24 bg-background">

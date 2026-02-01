@@ -1,10 +1,11 @@
-import { useSkills } from "@/hooks/use-portfolio";
+import { skillsData } from "@/lib/static-data";
 import { SectionHeading } from "@/components/section-heading";
 import { motion } from "framer-motion";
 import { Server, Code, Globe, Terminal, Database, Cloud } from "lucide-react";
 
 export function Skills() {
-  const { data: skills, isLoading } = useSkills();
+  const skills = skillsData;
+  const isLoading = false;
 
   // Mapping categories to icons for visual interest
   const getIcon = (category: string) => {
