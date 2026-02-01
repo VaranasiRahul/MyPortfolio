@@ -24,7 +24,7 @@ RUN apk add --no-cache tini && \
     touch /var/run/nginx.pid && \
     chown -R nginx:nginx /var/run/nginx.pid
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist/public /usr/share/nginx/html
 
 COPY <<EOF /etc/nginx/nginx.conf
 user nginx;
