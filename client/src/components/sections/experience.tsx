@@ -76,7 +76,7 @@ export function Experience() {
                         }`}>
                           {role.role}
                         </h3>
-                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase tracking-tighter ${
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase tracking-tighter shrink-0 ${
                           role.id === 1
                             ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
                             : "bg-blue-500/10 text-blue-400 border-blue-500/20"

@@ -60,7 +60,7 @@ export function Education() {
                       </div>
                       <div className="flex items-center gap-2">
                         <Award className="w-4 h-4 text-primary/60" />
-                        {edu.details.includes("CGPA") ? `CGPA: ${edu.details.split("CGPA: ")[1].split(".")[0]}` : edu.details.includes("Percentage") ? `Percentage: ${edu.details.split("Percentage: ")[1]}` : ""}
+                        {edu.details.includes("CGPA") ? `CGPA: ${edu.details.split("CGPA: ")[1].split(".")[0].split(" ")[0]}` : edu.details.includes("Percentage") ? `Percentage: ${edu.details.split("Percentage: ")[1].split(" ")[0]}` : ""}
                       </div>
                     </div>
 
