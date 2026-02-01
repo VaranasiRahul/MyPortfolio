@@ -29,7 +29,7 @@ export const experienceData = [
     role: "GITAM WEB PROJECT | PROJECT LEAD",
     company: "Internships and Projects",
     location: "Visakhapatnam",
-    duration: "Nov 2022 – Present",
+    duration: "Nov 2022 – Mar 2023",
     tags: ["Independent Project"],
     link: "https://drive.google.com/file/d/1iEg4BbHKAAMDkhGvvbMDbf_j7DofEFGA/view?usp=share_link",
     highlights: [
@@ -72,7 +72,7 @@ export const educationData = [
     institution: "GITAM University",
     location: "Visakhapatnam, AP",
     year: "2019 – 2023",
-    details: "CGPA: 7.50/10.0. Coursework: Agile Software Development, Database Management Systems, Software Testing Methodologies, Big Data Analytics, Cloud Computing, Web Development, Data Structures & Algorithms"
+    details: "Coursework: Agile Software Development, Database Management Systems, Software Testing Methodologies, Big Data Analytics, Cloud Computing, Web Development, Data Structures & Algorithms"
   },
   {
     id: 2,
@@ -80,7 +80,7 @@ export const educationData = [
     institution: "Sri Gayatri Junior College",
     location: "Visakhapatnam, AP",
     year: "April 2019",
-    details: "CGPA: 7.78/10.0"
+    details: ""
   },
   {
     id: 3,
@@ -88,7 +88,7 @@ export const educationData = [
     institution: "Timpany School",
     location: "Visakhapatnam, AP",
     year: "May 2017",
-    details: "Percentage: 70.80%"
+    details: ""
   }
 ];
 

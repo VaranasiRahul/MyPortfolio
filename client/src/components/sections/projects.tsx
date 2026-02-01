@@ -44,6 +44,13 @@ export function Projects() {
                         <Code2 className="w-6 h-6" />
                       </div>
                       <div className="flex flex-col items-end gap-2">
+                        {project.id === 1 && (
+                          <img 
+                            src="https://www.freepnglogos.com/uploads/land-rover-png-logo/jaguar-land-rover-sports-png-logo-3.png" 
+                            alt="JLR Logo" 
+                            className="h-12 object-contain mb-2 hidden md:block" 
+                          />
+                        )}
                         <span className={`text-xs font-bold px-3 py-1.5 rounded-full border uppercase tracking-wider ${
                           project.id === 1
                             ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"

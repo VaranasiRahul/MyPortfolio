@@ -30,8 +30,8 @@ export function Hero() {
             <span className="text-gradient">Rahul Varanasi</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light leading-relaxed">
-            Computer Science graduate from GITAM University and currently a DevOps Engineer at TCS. I specialize in building scalable infrastructure and modern full-stack applications. As an AWS Certified Solutions Architect Associate (SAA-C03) and Practitioner, I bring hands-on experience in optimizing developer platforms and cloud architecture.
+          <p className="text-base md:text-lg text-muted-foreground mb-8 font-medium leading-relaxed max-w-2xl">
+            DevOps Engineer with 2 years of experience building CI/CD pipelines, internal developer platforms, and automation solutions to improve deployment reliability and engineering productivity. Experienced in GitLab CI/CD, containerization, observability, and infrastructure automation. Contributed to a Backstage-inspired internal developer portal enabling automated repository provisioning and access management across teams. AWS Certified Solutions Architect with strong cloud fundamentals and hands-on experience through personal projects using Jenkins, Docker, Kubernetes, ArgoCD, and AWS.
           </p>
           
           <div className="flex flex-wrap gap-4 mb-10">

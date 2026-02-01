@@ -36,11 +36,8 @@ export function Navbar() {
           duration={500}
           className="flex items-center gap-2 cursor-pointer group"
         >
-          <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-            <Code2 className="w-6 h-6 text-primary" />
-          </div>
-          <span className="text-xl font-bold font-display tracking-tight text-foreground">
-            Rahul<span className="text-primary">.dev</span>
+          <span className="text-xl font-bold font-display tracking-tight text-foreground bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
+            Rahul Varanasi
           </span>
         </ScrollLink>
 

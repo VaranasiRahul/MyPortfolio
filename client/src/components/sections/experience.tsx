@@ -71,23 +71,32 @@ export function Experience() {
                       </div>
                       
                       <div className="flex items-center gap-3 mb-1">
-                        <h3 className={`text-xl font-bold transition-colors ${
-                          role.id === 1 ? "group-hover:text-emerald-400" : "group-hover:text-primary"
-                        }`}>
-                          {role.role}
-                        </h3>
+                        {role.link ? (
+                          <a 
+                            href={role.link} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className={`text-xl font-bold transition-colors hover:underline decoration-primary/30 underline-offset-4 ${
+                              role.id === 1 ? "group-hover:text-emerald-400" : "group-hover:text-primary"
+                            }`}
+                          >
+                            {role.role}
+                          </a>
+                        ) : (
+                          <h3 className={`text-xl font-bold transition-colors ${
+                            role.id === 1 ? "group-hover:text-emerald-400" : "group-hover:text-primary"
+                          }`}>
+                            {role.role}
+                          </h3>
+                        )}
+                        {role.id === 1 && (
+                          <img 
+                            src="https://www.freepnglogos.com/uploads/land-rover-png-logo/jaguar-land-rover-sports-png-logo-3.png" 
+                            alt="JLR Logo" 
+                            className="h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity ml-2" 
+                          />
+                        )}
                       </div>
-                      
-                      {role.link && (
-                        <a 
-                          href={role.link} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-xs font-bold text-emerald-400 hover:text-emerald-300 transition-colors mb-4"
-                        >
-                          Documentation :// Drive Link (click here)
-                        </a>
-                      )}
                       
                       <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-muted-foreground mb-4">
                         <span className={`flex items-center gap-1.5 px-2 py-0.5 rounded-md border ${
