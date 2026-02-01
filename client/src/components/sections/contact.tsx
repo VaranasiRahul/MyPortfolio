@@ -42,6 +42,11 @@ export function Contact() {
               value="+91 9346304157"
               href="tel:+919346304157"
             />
+            <ContactCard 
+              icon={<MapPin className="w-5 h-5 text-primary" />}
+              label="Location"
+              value="Visakhapatnam, Andhra Pradesh, India"
+            />
           </div>
 
           {/* Follow Me */}

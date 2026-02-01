@@ -7,7 +7,7 @@ export function Experience() {
   const { data: experience, isLoading } = useExperience();
 
   return (
-    <section id="experience" className="py-24 bg-background overflow-hidden">
+    <section id="experience" className="py-24 bg-background">
       <div className="container-padding">
         <SectionHeading 
           title="Professional Journey" 
@@ -15,21 +15,9 @@ export function Experience() {
         />
 
         <div className="max-w-3xl mx-auto relative pl-8 md:pl-0">
-          {/* Vertical Line with Animation */}
-          <motion.div 
-            initial={{ height: 0 }}
-            whileInView={{ height: "100%" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            viewport={{ once: true }}
-            className="absolute left-8 md:left-1/2 top-0 w-px bg-gradient-to-b from-primary via-emerald-500 to-primary/20 -translate-x-1/2 hidden md:block origin-top" 
-          />
-          <motion.div 
-            initial={{ height: 0 }}
-            whileInView={{ height: "100%" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            viewport={{ once: true }}
-            className="absolute left-0 top-0 w-px bg-gradient-to-b from-primary via-emerald-500 to-primary/20 md:hidden origin-top" 
-          />
+          {/* Vertical Line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2 hidden md:block" />
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-border md:hidden" />
 
           {isLoading ? (
             <div className="space-y-12">
@@ -40,24 +28,18 @@ export function Experience() {
               {experience?.map((role, index) => (
                 <motion.div
                   key={role.id}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className={`relative flex flex-col md:flex-row gap-8 ${
                     index % 2 === 0 ? "md:flex-row-reverse" : ""
                   }`}
                 >
                   {/* Timeline Dot */}
-                  <motion.div 
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ delay: 0.5 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className={`absolute left-[-33px] md:left-1/2 md:-translate-x-1/2 top-0 w-4 h-4 rounded-full border-4 border-background shadow-sm z-10 mt-1.5 ${
-                      role.id === 1 ? "bg-emerald-500 shadow-emerald-500/20" : "bg-primary shadow-primary/20"
-                    }`} 
-                  />
+                  <div className={`absolute left-[-33px] md:left-1/2 md:-translate-x-1/2 top-0 w-4 h-4 rounded-full border-4 border-background shadow-sm z-10 mt-1.5 transition-all duration-300 group-hover:scale-125 ${
+                    role.id === 1 ? "bg-emerald-500 shadow-emerald-500/20" : "bg-primary shadow-primary/20"
+                  }`} />
 
                   {/* Date (Desktop) */}
                   <div className={`hidden md:block w-1/2 ${index % 2 === 0 ? "text-left" : "text-right"}`}>
@@ -66,7 +48,7 @@ export function Experience() {
                         ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" 
                         : "bg-secondary text-secondary-foreground border-transparent"
                     }`}>
-                      <Calendar className="w-3.5 h-3.5" /> {role.id === 2 ? "Nov 2022 - Mar 2023" : role.duration}
+                      <Calendar className="w-3.5 h-3.5" /> {role.duration}
                     </span>
                   </div>
 
@@ -77,17 +59,6 @@ export function Experience() {
                         ? "bg-emerald-950/20 border-emerald-500/30 hover:border-emerald-500/50"
                         : "bg-card/40 border-white/5 hover:border-primary/20"
                     }`}>
-                      {/* JLR Logo for Experience Section */}
-                      {role.id === 1 && (
-                        <div className="absolute top-6 right-6 w-12 opacity-80 group-hover:opacity-100 transition-opacity">
-                          <img 
-                            src="https://1000logos.net/wp-content/uploads/2023/08/JLR-Logo-2008.png" 
-                            alt="JLR Logo" 
-                            className="w-full h-auto grayscale brightness-200 contrast-125"
-                          />
-                        </div>
-                      )}
-
                       {/* Mobile Date */}
                       <div className="md:hidden mb-4">
                         <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold border ${
@@ -95,30 +66,28 @@ export function Experience() {
                             ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
                             : "bg-primary/10 text-primary border-primary/20"
                         }`}>
-                          <Calendar className="w-3 h-3" /> {role.id === 2 ? "Nov 2022 - Mar 2023" : role.duration}
+                          <Calendar className="w-3 h-3" /> {role.duration}
                         </span>
                       </div>
                       
                       <div className="flex items-center gap-3 mb-1">
-                        {role.id === 2 ? (
-                          <a 
-                            href="https://drive.google.com/file/d/1iEg4BbHKAAMDkhGvvbMDbf_j7DofEFGA/view?usp=share_link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`text-xl font-bold transition-colors hover:underline decoration-emerald-500/50 ${
-                              role.id === 1 ? "group-hover:text-emerald-400" : "group-hover:text-primary"
-                            }`}
-                          >
-                            {role.role}
-                          </a>
-                        ) : (
-                          <h3 className={`text-xl font-bold transition-colors ${
-                            role.id === 1 ? "group-hover:text-emerald-400" : "group-hover:text-primary"
-                          }`}>
-                            {role.role}
-                          </h3>
-                        )}
+                        <h3 className={`text-xl font-bold transition-colors ${
+                          role.id === 1 ? "group-hover:text-emerald-400" : "group-hover:text-primary"
+                        }`}>
+                          {role.role}
+                        </h3>
                       </div>
+                      
+                      {role.link && (
+                        <a 
+                          href={role.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-xs font-bold text-emerald-400 hover:text-emerald-300 transition-colors mb-4"
+                        >
+                          Documentation :// Drive Link (click here)
+                        </a>
+                      )}
                       
                       <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-muted-foreground mb-4">
                         <span className={`flex items-center gap-1.5 px-2 py-0.5 rounded-md border ${
