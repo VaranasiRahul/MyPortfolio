@@ -46,8 +46,8 @@ export function Hero() {
             </ScrollLink>
             
             <a 
-              href="/Rahul_Varanasi-DevOps-Resume.docx" 
-              download="Rahul_Varanasi-DevOps-Resume.docx"
+              href="/Rahul_Varanasi-Resume.docx" 
+              download="Rahul_Varanasi-Resume.docx"
               className="px-8 py-4 rounded-xl bg-secondary text-foreground font-semibold border border-border hover:bg-secondary/80 hover:border-primary/30 transition-all flex items-center gap-2"
             >
               Download CV <Download className="w-4 h-4 text-primary" />

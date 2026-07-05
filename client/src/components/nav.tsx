@@ -58,8 +58,8 @@ export function Navbar() {
             </ScrollLink>
           ))}
           <a
-            href="/Rahul_Varanasi-DevOps-Resume.docx"
-            download="Rahul_Varanasi-DevOps-Resume.docx"
+            href="/Rahul_Varanasi-Resume.docx"
+            download="Rahul_Varanasi-Resume.docx"
             className="px-5 py-2.5 rounded-full bg-foreground text-background font-medium text-sm hover:bg-foreground/90 transition-all hover:shadow-lg active:scale-95 cursor-pointer flex items-center gap-1.5"
           >
             <span>CV</span>
@@ -99,8 +99,8 @@ export function Navbar() {
                 </ScrollLink>
               ))}
               <a
-                href="/Rahul_Varanasi-DevOps-Resume.docx"
-                download="Rahul_Varanasi-DevOps-Resume.docx"
+                href="/Rahul_Varanasi-Resume.docx"
+                download="Rahul_Varanasi-Resume.docx"
                 onClick={() => setIsOpen(false)}
                 className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-foreground text-background font-medium text-base hover:bg-foreground/90 transition-all active:scale-95 cursor-pointer text-center w-full"
               >
