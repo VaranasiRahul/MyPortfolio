@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: resume-showcase
-        image: rahulvaranasi/resume-showcase:9
+        image: rahulvaranasi/resume-showcase:1-3400d57
         imagePullPolicy: Always
         ports:
         - containerPort: 80
