@@ -19,7 +19,7 @@
 #  8. notify           Post job summary with links + metadata
 # =============================================================================
 
-name: "🚀 CI/CD — Build · Scan · Deploy"
+name: "CI/CD — Build · Scan · Deploy"
 
 on:
   # ── Automatic triggers ────────────────────────────────────────────────────
@@ -98,7 +98,7 @@ env:
 # =============================================================================
 jobs:
   security-scan:
-    name: "🔒 Security Gate"
+    name: "Security Gate"
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -110,13 +110,13 @@ jobs:
       secrets_found: ${{ steps.gitleaks.outputs.exit_code }}
 
     steps:
-      - name: "📥 Checkout (full history for secret scanning)"
+      - name: "Checkout (full history for secret scanning)"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Full history needed for gitleaks
 
       # ── Secret Detection ─────────────────────────────────────────────────
-      - name: "🔍 Gitleaks — Detect hardcoded secrets"
+      - name: "Gitleaks — Detect hardcoded secrets"
         id: gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:
@@ -125,16 +125,16 @@ jobs:
         continue-on-error: true  # Don't break pipeline on public repo demo
 
       # ── Dependency Audit ─────────────────────────────────────────────────
-      - name: "📦 Setup Node.js ${{ env.NODE_VERSION }}"
+      - name: "Setup Node.js ${{ env.NODE_VERSION }}"
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
 
-      - name: "📥 Install dependencies"
+      - name: "Install dependencies"
         run: npm ci --prefer-offline
 
-      - name: "🛡️ npm audit — Check for vulnerable packages"
+      - name: "npm audit — Check for vulnerable packages"
         run: |
           echo "## npm audit results" >> $GITHUB_STEP_SUMMARY
           npm audit --audit-level=high --json | tee audit-report.json | \
@@ -149,9 +149,9 @@ jobs:
                 console.log('Low:', vulns.low || 0);
               } catch(e) { console.log('Audit complete'); }
             " || true
-          echo "✅ Dependency audit complete" >> $GITHUB_STEP_SUMMARY
+          echo "Dependency audit complete" >> $GITHUB_STEP_SUMMARY
 
-      - name: "📤 Upload audit report"
+      - name: "Upload audit report"
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -165,25 +165,25 @@ jobs:
 # Catches type errors and code style issues before they reach production
 # =============================================================================
   code-quality:
-    name: "🔍 Code Quality"
+    name: "Code Quality"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     needs: security-scan
 
     steps:
-      - name: "📥 Checkout"
+      - name: "Checkout"
         uses: actions/checkout@v4
 
-      - name: "📦 Setup Node.js ${{ env.NODE_VERSION }}"
+      - name: "Setup Node.js ${{ env.NODE_VERSION }}"
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
 
-      - name: "📥 Install dependencies (cached)"
+      - name: "Install dependencies (cached)"
         run: npm ci --prefer-offline
 
-      - name: "🔷 TypeScript — Strict type check"
+      - name: "TypeScript — Strict type check"
         run: |
           echo "Running TypeScript compiler in strict mode..."
           npx tsc --noEmit --strict 2>&1 | tee tsc-output.txt || true
@@ -191,19 +191,19 @@ jobs:
           echo "TypeScript errors found: $ERRORS"
           echo "## TypeScript Check" >> $GITHUB_STEP_SUMMARY
           if [ "$ERRORS" -gt "0" ]; then
-            echo "⚠️ Found $ERRORS TypeScript error(s)" >> $GITHUB_STEP_SUMMARY
+            echo "Found $ERRORS TypeScript error(s)" >> $GITHUB_STEP_SUMMARY
             cat tsc-output.txt >> $GITHUB_STEP_SUMMARY
           else
-            echo "✅ No TypeScript errors" >> $GITHUB_STEP_SUMMARY
+            echo "No TypeScript errors" >> $GITHUB_STEP_SUMMARY
           fi
 
-      - name: "📏 Check build configuration"
+      - name: "Check build configuration"
         run: |
           echo "## Build Config Check" >> $GITHUB_STEP_SUMMARY
           echo "- Node: $(node --version)" >> $GITHUB_STEP_SUMMARY
           echo "- npm: $(npm --version)" >> $GITHUB_STEP_SUMMARY
-          echo "- Vite config: vite.config.ts ✅" >> $GITHUB_STEP_SUMMARY
-          echo "- TailwindCSS: tailwind.config.ts ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Vite config: vite.config.ts " >> $GITHUB_STEP_SUMMARY
+          echo "- TailwindCSS: tailwind.config.ts " >> $GITHUB_STEP_SUMMARY
 
 # =============================================================================
 # STAGE 3: Build
@@ -211,7 +211,7 @@ jobs:
 # Uses caching aggressively to keep build times fast
 # =============================================================================
   build:
-    name: "🏗️ Build Application"
+    name: "Build Application"
     runs-on: ubuntu-latest
     timeout-minutes: 15
     needs: code-quality
@@ -222,16 +222,16 @@ jobs:
       image_tag: ${{ steps.metadata.outputs.tag }}
 
     steps:
-      - name: "📥 Checkout"
+      - name: "Checkout"
         uses: actions/checkout@v4
 
-      - name: "📦 Setup Node.js ${{ env.NODE_VERSION }}"
+      - name: "Setup Node.js ${{ env.NODE_VERSION }}"
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
 
-      - name: "🔖 Capture build metadata"
+      - name: "Capture build metadata"
         id: metadata
         run: |
           SHA=$(git rev-parse --short HEAD)
@@ -249,10 +249,10 @@ jobs:
           echo "| Triggered By | \`${{ github.actor }}\` |" >> $GITHUB_STEP_SUMMARY
           echo "| Event | \`${{ github.event_name }}\` |" >> $GITHUB_STEP_SUMMARY
 
-      - name: "📥 Install dependencies (cached)"
+      - name: "Install dependencies (cached)"
         run: npm ci --prefer-offline
 
-      - name: "⚙️ Build — Vite production bundle"
+      - name: "Build — Vite production bundle"
         run: |
           npm run build
           echo "### Build Output" >> $GITHUB_STEP_SUMMARY
@@ -261,7 +261,7 @@ jobs:
           find dist/public -name "*.js" -o -name "*.css" | head -20 >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
 
-      - name: "📊 Bundle size analysis"
+      - name: "Bundle size analysis"
         run: |
           echo "### Bundle Size" >> $GITHUB_STEP_SUMMARY
           echo "| File | Size |" >> $GITHUB_STEP_SUMMARY
@@ -269,7 +269,7 @@ jobs:
           find dist/public/assets -type f \( -name "*.js" -o -name "*.css" \) -exec ls -lh {} \; | \
             awk '{print "| " $NF " | " $5 " |"}' | sed 's|dist/public/assets/||' >> $GITHUB_STEP_SUMMARY || true
 
-      - name: "📤 Upload build artifact"
+      - name: "Upload build artifact"
         uses: actions/upload-artifact@v4
         with:
           name: "production-build-${{ steps.metadata.outputs.sha }}"
@@ -284,7 +284,7 @@ jobs:
 # Skipped if DOCKERHUB_TOKEN secret is not configured
 # =============================================================================
   docker-build-scan:
-    name: "🐳 Docker Build + Trivy Scan"
+    name: "Docker Build + Trivy Scan"
     runs-on: ubuntu-latest
     timeout-minutes: 30
     needs: build
@@ -302,27 +302,27 @@ jobs:
       IMAGE_FULL: "rahulvaranasi/resume-showcase:${{ needs.build.outputs.image_tag }}"
 
     steps:
-      - name: "📥 Checkout"
+      - name: "Checkout"
         uses: actions/checkout@v4
 
-      - name: "🔖 Check Docker credentials"
+      - name: "Check Docker credentials"
         id: docker_check
         run: |
           if [ -n "${{ secrets.DOCKERHUB_TOKEN }}" ]; then
             echo "has_creds=true" >> $GITHUB_OUTPUT
-            echo "✅ DockerHub credentials available" >> $GITHUB_STEP_SUMMARY
+            echo "DockerHub credentials available" >> $GITHUB_STEP_SUMMARY
           else
             echo "has_creds=false" >> $GITHUB_OUTPUT
-            echo "⚠️ DockerHub credentials not configured — build only, no push" >> $GITHUB_STEP_SUMMARY
+            echo "DockerHub credentials not configured — build only, no push" >> $GITHUB_STEP_SUMMARY
           fi
 
       # ── Docker Build Kit Setup ───────────────────────────────────────────
-      - name: "🔧 Set up Docker Buildx (multi-platform support)"
+      - name: "Set up Docker Buildx (multi-platform support)"
         uses: docker/setup-buildx-action@v3
         with:
           install: true
 
-      - name: "🔐 Login to DockerHub"
+      - name: "Login to DockerHub"
         if: steps.docker_check.outputs.has_creds == 'true'
         uses: docker/login-action@v3
         with:
@@ -330,7 +330,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       # ── Docker Build ─────────────────────────────────────────────────────
-      - name: "📋 Docker metadata (tags + labels)"
+      - name: "Docker metadata (tags + labels)"
         id: docker_meta
         uses: docker/metadata-action@v5
         with:
@@ -346,7 +346,7 @@ jobs:
             org.opencontainers.image.url=https://rahulvaranasi-portfolio.netlify.app
             org.opencontainers.image.source=https://github.com/VaranasiRahul/MyPortfolio
 
-      - name: "🐳 Build Docker image"
+      - name: "Build Docker image"
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -363,7 +363,7 @@ jobs:
           provenance: false
 
       # ── Trivy Security Scan ──────────────────────────────────────────────
-      - name: "🛡️ Trivy — Container vulnerability scan (SARIF)"
+      - name: "Trivy — Container vulnerability scan (SARIF)"
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: "${{ env.DOCKERHUB_REPO }}:${{ env.IMAGE_TAG }}"
@@ -374,7 +374,7 @@ jobs:
           exit-code: "0"  # Don't fail on SARIF upload scan
         continue-on-error: true
 
-      - name: "📤 Upload Trivy SARIF to GitHub Security tab"
+      - name: "Upload Trivy SARIF to GitHub Security tab"
         if: always()
         uses: github/codeql-action/upload-sarif@v3
         with:
@@ -382,7 +382,7 @@ jobs:
           category: "trivy-container"
         continue-on-error: true
 
-      - name: "🛡️ Trivy — Hard gate scan (CRITICAL only)"
+      - name: "Trivy — Hard gate scan (CRITICAL only)"
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: "${{ env.DOCKERHUB_REPO }}:${{ env.IMAGE_TAG }}"
@@ -392,7 +392,7 @@ jobs:
           exit-code: "0"  # Log but don't block — base images may have unfixed CVEs
         continue-on-error: true
 
-      - name: "📤 Trivy JSON report"
+      - name: "Trivy JSON report"
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: "${{ env.DOCKERHUB_REPO }}:${{ env.IMAGE_TAG }}"
@@ -402,10 +402,10 @@ jobs:
           ignore-unfixed: true
         continue-on-error: true
 
-      - name: "📊 Trivy scan summary"
+      - name: "Trivy scan summary"
         if: always()
         run: |
-          echo "## 🛡️ Trivy Container Security Scan" >> $GITHUB_STEP_SUMMARY
+          echo "## Trivy Container Security Scan" >> $GITHUB_STEP_SUMMARY
           echo "Image: \`${{ env.DOCKERHUB_REPO }}:${{ env.IMAGE_TAG }}\`" >> $GITHUB_STEP_SUMMARY
           if [ -f trivy-report.json ]; then
             CRITICAL=$(cat trivy-report.json | python3 -c "
@@ -430,11 +430,11 @@ jobs:
           " 2>/dev/null || echo "N/A")
             echo "| Severity | Count |" >> $GITHUB_STEP_SUMMARY
             echo "|---|---|" >> $GITHUB_STEP_SUMMARY
-            echo "| 🔴 CRITICAL | ${CRITICAL} |" >> $GITHUB_STEP_SUMMARY
-            echo "| 🟠 HIGH | ${HIGH} |" >> $GITHUB_STEP_SUMMARY
+            echo "| CRITICAL | ${CRITICAL} |" >> $GITHUB_STEP_SUMMARY
+            echo "| HIGH | ${HIGH} |" >> $GITHUB_STEP_SUMMARY
           fi
 
-      - name: "📤 Upload Trivy JSON report artifact"
+      - name: "Upload Trivy JSON report artifact"
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -443,7 +443,7 @@ jobs:
           retention-days: 30
 
       # ── Push to DockerHub ────────────────────────────────────────────────
-      - name: "📤 Push image to DockerHub"
+      - name: "Push image to DockerHub"
         if: |
           steps.docker_check.outputs.has_creds == 'true' &&
           (github.ref == 'refs/heads/main' || github.event.inputs.force_deploy == 'true')
@@ -462,10 +462,10 @@ jobs:
           cache-to: type=gha,mode=max
           provenance: false
 
-      - name: "✅ Docker push summary"
+      - name: "Docker push summary"
         if: steps.docker_check.outputs.has_creds == 'true'
         run: |
-          echo "### 🐳 Docker Image Published" >> $GITHUB_STEP_SUMMARY
+          echo "### Docker Image Published" >> $GITHUB_STEP_SUMMARY
           echo "- **Registry**: DockerHub" >> $GITHUB_STEP_SUMMARY
           echo "- **Repository**: \`${{ env.DOCKERHUB_REPO }}\`" >> $GITHUB_STEP_SUMMARY
           echo "- **Tag**: \`${{ env.IMAGE_TAG }}\`" >> $GITHUB_STEP_SUMMARY
@@ -478,40 +478,40 @@ jobs:
 # Skipped gracefully if SONAR_TOKEN is not configured
 # =============================================================================
   sast:
-    name: "🔐 SonarCloud SAST"
+    name: "SonarCloud SAST"
     runs-on: ubuntu-latest
     timeout-minutes: 15
     needs: build
     if: inputs.skip_sonar != 'true'
 
     steps:
-      - name: "📥 Checkout (full history for blame/coverage)"
+      - name: "Checkout (full history for blame/coverage)"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: "🔖 Check SonarCloud token"
+      - name: "Check SonarCloud token"
         id: sonar_check
         run: |
           if [ -n "${{ secrets.SONAR_TOKEN }}" ]; then
             echo "has_token=true" >> $GITHUB_OUTPUT
           else
             echo "has_token=false" >> $GITHUB_OUTPUT
-            echo "⚠️ SONAR_TOKEN not configured — skipping SAST analysis" >> $GITHUB_STEP_SUMMARY
+            echo "SONAR_TOKEN not configured — skipping SAST analysis" >> $GITHUB_STEP_SUMMARY
           fi
 
-      - name: "📦 Setup Node.js ${{ env.NODE_VERSION }}"
+      - name: "Setup Node.js ${{ env.NODE_VERSION }}"
         if: steps.sonar_check.outputs.has_token == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
 
-      - name: "📥 Install dependencies"
+      - name: "Install dependencies"
         if: steps.sonar_check.outputs.has_token == 'true'
         run: npm ci --prefer-offline
 
-      - name: "🔐 SonarCloud Scan"
+      - name: "SonarCloud Scan"
         if: steps.sonar_check.outputs.has_token == 'true'
         uses: SonarSource/sonarcloud-github-action@master
         env:
@@ -525,12 +525,12 @@ jobs:
             -Dsonar.exclusions=**/node_modules/**,**/dist/**,**/*.test.ts
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
 
-      - name: "✅ SAST summary"
+      - name: "SAST summary"
         if: steps.sonar_check.outputs.has_token == 'true'
         run: |
-          echo "## 🔐 SonarCloud SAST" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Analysis complete" >> $GITHUB_STEP_SUMMARY
-          echo "📊 [View Results](https://sonarcloud.io/project/overview?id=${{ env.SONAR_PROJECT_KEY }})" >> $GITHUB_STEP_SUMMARY
+          echo "## SonarCloud SAST" >> $GITHUB_STEP_SUMMARY
+          echo "Analysis complete" >> $GITHUB_STEP_SUMMARY
+          echo "[View Results](https://sonarcloud.io/project/overview?id=${{ env.SONAR_PROJECT_KEY }})" >> $GITHUB_STEP_SUMMARY
 
 # =============================================================================
 # STAGE 6: Deploy to Netlify
@@ -539,7 +539,7 @@ jobs:
 # Needs: build (artifact), docker-build-scan, sast
 # =============================================================================
   deploy:
-    name: "🚀 Deploy → Netlify"
+    name: "Deploy → Netlify"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     needs:
@@ -561,13 +561,13 @@ jobs:
       deployments: write
 
     steps:
-      - name: "⬇️ Download build artifact"
+      - name: "Download build artifact"
         uses: actions/download-artifact@v4
         with:
           name: "production-build-${{ needs.build.outputs.build_sha }}"
           path: dist/public
 
-      - name: "📋 Verify build artifact"
+      - name: "Verify build artifact"
         run: |
           echo "=== Build artifact contents ==="
           ls -la dist/public/
@@ -577,15 +577,15 @@ jobs:
             echo "ERROR: index.html not found in dist/public/"
             exit 1
           fi
-          echo "✅ index.html found"
+          echo "index.html found"
           echo "Total size: $(du -sh dist/public | cut -f1)"
 
-      - name: "📦 Setup Node.js ${{ env.NODE_VERSION }}"
+      - name: "Setup Node.js ${{ env.NODE_VERSION }}"
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: "🚀 Deploy to Netlify (via CLI)"
+      - name: "Deploy to Netlify (via CLI)"
         id: deploy
         run: |
           # Install Netlify CLI
@@ -621,9 +621,9 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
-      - name: "✅ Deployment summary"
+      - name: "Deployment summary"
         run: |
-          echo "## 🚀 Deployed to Netlify" >> $GITHUB_STEP_SUMMARY
+          echo "## Deployed to Netlify" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Field | Value |" >> $GITHUB_STEP_SUMMARY
           echo "|---|---|" >> $GITHUB_STEP_SUMMARY
@@ -642,7 +642,7 @@ jobs:
 # Even though AWS/k3s is down, this shows the complete workflow knowledge
 # =============================================================================
   update-gitops:
-    name: "📋 Update GitOps Manifest"
+    name: "Update GitOps Manifest"
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs:
@@ -659,13 +659,13 @@ jobs:
       contents: write  # Need write to commit manifest update
 
     steps:
-      - name: "📥 Checkout"
+      - name: "Checkout"
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 1
 
-      - name: "🔖 Update image tag in deployment.yaml"
+      - name: "Update image tag in deployment.yaml"
         run: |
           IMAGE_TAG="${{ needs.build.outputs.image_tag }}"
           echo "Updating gitops/deployment.yaml with image tag: ${IMAGE_TAG}"
@@ -677,7 +677,7 @@ jobs:
           echo "Updated deployment.yaml:"
           grep "image:" gitops/deployment.yaml
 
-      - name: "🔄 Commit and push manifest update"
+      - name: "Commit and push manifest update"
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
@@ -698,7 +698,7 @@ jobs:
             - ArgoCD would auto-sync this to k3s cluster"
             
             git push
-            echo "✅ GitOps manifest updated" >> $GITHUB_STEP_SUMMARY
+            echo "GitOps manifest updated" >> $GITHUB_STEP_SUMMARY
             echo "- Image tag: \`${{ needs.build.outputs.image_tag }}\`" >> $GITHUB_STEP_SUMMARY
             echo "- ArgoCD would now sync this to the k3s cluster" >> $GITHUB_STEP_SUMMARY
           fi
@@ -708,7 +708,7 @@ jobs:
 # Aggregates all results and posts a comprehensive summary
 # =============================================================================
   pipeline-summary:
-    name: "📊 Pipeline Summary"
+    name: "Pipeline Summary"
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs:
@@ -722,9 +722,9 @@ jobs:
     if: always()
 
     steps:
-      - name: "📊 Generate pipeline summary"
+      - name: "Generate pipeline summary"
         run: |
-          echo "# 🚀 Pipeline Complete — Rahul Varanasi Portfolio" >> $GITHUB_STEP_SUMMARY
+          echo "#  Pipeline Complete — Rahul Varanasi Portfolio" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "## Stage Results" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
@@ -733,26 +733,26 @@ jobs:
           
           get_status() {
             case $1 in
-              success) echo "✅ Passed" ;;
-              failure) echo "❌ Failed" ;;
-              skipped) echo "⏭️ Skipped" ;;
-              cancelled) echo "🚫 Cancelled" ;;
-              *) echo "⚠️ $1" ;;
+              success) echo "Passed" ;;
+              failure) echo "Failed" ;;
+              skipped) echo "Skipped" ;;
+              cancelled) echo "Cancelled" ;;
+              *) echo "$1" ;;
             esac
           }
           
-          echo "| 🔒 Security Gate | $(get_status '${{ needs.security-scan.result }}') |" >> $GITHUB_STEP_SUMMARY
-          echo "| 🔍 Code Quality | $(get_status '${{ needs.code-quality.result }}') |" >> $GITHUB_STEP_SUMMARY
-          echo "| 🏗️ Build | $(get_status '${{ needs.build.result }}') |" >> $GITHUB_STEP_SUMMARY
-          echo "| 🐳 Docker + Trivy | $(get_status '${{ needs.docker-build-scan.result }}') |" >> $GITHUB_STEP_SUMMARY
-          echo "| 🔐 SonarCloud SAST | $(get_status '${{ needs.sast.result }}') |" >> $GITHUB_STEP_SUMMARY
-          echo "| 🚀 Deploy Netlify | $(get_status '${{ needs.deploy.result }}') |" >> $GITHUB_STEP_SUMMARY
-          echo "| 📋 GitOps Update | $(get_status '${{ needs.update-gitops.result }}') |" >> $GITHUB_STEP_SUMMARY
+          echo "| Security Gate | $(get_status '${{ needs.security-scan.result }}') |" >> $GITHUB_STEP_SUMMARY
+          echo "| Code Quality | $(get_status '${{ needs.code-quality.result }}') |" >> $GITHUB_STEP_SUMMARY
+          echo "| Build | $(get_status '${{ needs.build.result }}') |" >> $GITHUB_STEP_SUMMARY
+          echo "| Docker + Trivy | $(get_status '${{ needs.docker-build-scan.result }}') |" >> $GITHUB_STEP_SUMMARY
+          echo "| SonarCloud SAST | $(get_status '${{ needs.sast.result }}') |" >> $GITHUB_STEP_SUMMARY
+          echo "| Deploy Netlify | $(get_status '${{ needs.deploy.result }}') |" >> $GITHUB_STEP_SUMMARY
+          echo "| GitOps Update | $(get_status '${{ needs.update-gitops.result }}') |" >> $GITHUB_STEP_SUMMARY
           
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "## 🔗 Quick Links" >> $GITHUB_STEP_SUMMARY
-          echo "- 🌐 [Live Site](https://rahulvaranasi-portfolio.netlify.app)" >> $GITHUB_STEP_SUMMARY
-          echo "- 📊 [SonarCloud Dashboard](https://sonarcloud.io/project/overview?id=${{ env.SONAR_PROJECT_KEY }})" >> $GITHUB_STEP_SUMMARY
-          echo "- 🐳 [DockerHub Image](https://hub.docker.com/r/rahulvaranasi/resume-showcase)" >> $GITHUB_STEP_SUMMARY
-          echo "- 🔐 [Security Tab](https://github.com/${{ github.repository }}/security)" >> $GITHUB_STEP_SUMMARY
-          echo "- 📋 [GitOps Manifests](https://github.com/${{ github.repository }}/tree/main/gitops)" >> $GITHUB_STEP_SUMMARY
+          echo "## Quick Links" >> $GITHUB_STEP_SUMMARY
+          echo "-  [Live Site](https://rahulvaranasi-portfolio.netlify.app)" >> $GITHUB_STEP_SUMMARY
+          echo "-  [SonarCloud Dashboard](https://sonarcloud.io/project/overview?id=${{ env.SONAR_PROJECT_KEY }})" >> $GITHUB_STEP_SUMMARY
+          echo "-  [DockerHub Image](https://hub.docker.com/r/rahulvaranasi/resume-showcase)" >> $GITHUB_STEP_SUMMARY
+          echo "-  [Security Tab](https://github.com/${{ github.repository }}/security)" >> $GITHUB_STEP_SUMMARY
+          echo "-  [GitOps Manifests](https://github.com/${{ github.repository }}/tree/main/gitops)" >> $GITHUB_STEP_SUMMARY
