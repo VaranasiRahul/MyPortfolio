@@ -610,14 +610,10 @@ jobs:
           echo "Deploy output: $DEPLOY_OUTPUT"
           
           # Extract URL from JSON output
-          DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | python3 -c "
-import json, sys
-try:
-    data = json.load(sys.stdin)
-    print(data.get('deploy_url', data.get('url', 'https://rahulvaranasi-portfolio.netlify.app')))
-except:
-    print('https://rahulvaranasi-portfolio.netlify.app')
-" 2>/dev/null || echo 'https://rahulvaranasi-portfolio.netlify.app')
+          DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | jq -r '.deploy_url // .url' 2>/dev/null || true)
+          if [ -z "$DEPLOY_URL" ] || [ "$DEPLOY_URL" = "null" ]; then
+            DEPLOY_URL="https://rahulvaranasi-portfolio.netlify.app"
+          fi
           
           echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
           echo "Deploy URL: $DEPLOY_URL"
