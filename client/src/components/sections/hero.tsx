@@ -46,8 +46,8 @@ export function Hero() {
             </ScrollLink>
             
             <a 
-              href="/resume.pdf" 
-              target="_blank"
+              href="/Rahul_Varanasi-DevOps-Resume.docx" 
+              download="Rahul_Varanasi-DevOps-Resume.docx"
               className="px-8 py-4 rounded-xl bg-secondary text-foreground font-semibold border border-border hover:bg-secondary/80 hover:border-primary/30 transition-all flex items-center gap-2"
             >
               Download CV <Download className="w-4 h-4 text-primary" />
@@ -56,7 +56,7 @@ export function Hero() {
           
           <div className="flex items-center gap-6">
             <SocialLink href="https://github.com/VaranasiRahul" icon={<Github className="w-6 h-6" />} label="GitHub" />
-            <SocialLink href="https://linkedin.com/in/VaranasiRahul" icon={<Linkedin className="w-6 h-6" />} label="LinkedIn" />
+            <SocialLink href="https://www.linkedin.com/in/varanasirahul/" icon={<Linkedin className="w-6 h-6" />} label="LinkedIn" />
             <SocialLink href="mailto:rahulvaranasi04@gmail.com" icon={<Mail className="w-6 h-6" />} label="Email" />
           </div>
         </motion.div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 // @ts-ignore
 import { Link as ScrollLink } from "react-scroll";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X, Code2, Download } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -57,14 +57,14 @@ export function Navbar() {
               {link.name}
             </ScrollLink>
           ))}
-          <ScrollLink
-            to="contact"
-            smooth={true}
-            duration={500}
-            className="px-5 py-2.5 rounded-full bg-foreground text-background font-medium text-sm hover:bg-foreground/90 transition-all hover:shadow-lg active:scale-95 cursor-pointer"
+          <a
+            href="/Rahul_Varanasi-DevOps-Resume.docx"
+            download="Rahul_Varanasi-DevOps-Resume.docx"
+            className="px-5 py-2.5 rounded-full bg-foreground text-background font-medium text-sm hover:bg-foreground/90 transition-all hover:shadow-lg active:scale-95 cursor-pointer flex items-center gap-1.5"
           >
-            Hire Me
-          </ScrollLink>
+            <span>CV</span>
+            <Download className="w-4 h-4" />
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -98,6 +98,15 @@ export function Navbar() {
                   {link.name}
                 </ScrollLink>
               ))}
+              <a
+                href="/Rahul_Varanasi-DevOps-Resume.docx"
+                download="Rahul_Varanasi-DevOps-Resume.docx"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-foreground text-background font-medium text-base hover:bg-foreground/90 transition-all active:scale-95 cursor-pointer text-center w-full"
+              >
+                <span>CV</span>
+                <Download className="w-5 h-5" />
+              </a>
             </div>
           </motion.div>
         )}

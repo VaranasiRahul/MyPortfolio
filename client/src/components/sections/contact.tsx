@@ -62,8 +62,8 @@ export function Contact() {
               <SocialCard 
                 icon={<Linkedin className="w-5 h-5 text-primary" />}
                 label="LinkedIn"
-                value="linkedin.com/in/VaranasiRahul"
-                href="https://linkedin.com/in/VaranasiRahul"
+                value="linkedin.com/in/varanasirahul"
+                href="https://www.linkedin.com/in/varanasirahul/"
               />
             </div>
             
