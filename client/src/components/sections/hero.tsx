@@ -32,7 +32,7 @@ export function Hero() {
           </h1>
           
           <p className="text-sm md:text-base text-muted-foreground mb-8 font-normal leading-relaxed max-w-2xl tracking-tight opacity-90">
-            DevOps Engineer with 2 years of experience building CI/CD pipelines, internal developer platforms, and automation solutions to improve deployment reliability and engineering productivity. Experienced in GitLab CI/CD, containerization, observability, and infrastructure automation. Contributed to a Backstage-inspired internal developer portal enabling automated repository provisioning and access management across teams. AWS Certified Solutions Architect with strong cloud fundamentals and hands-on experience through personal projects using Jenkins, Docker, Kubernetes, ArgoCD, and AWS.
+            DevOps Engineer with 2+ years of experience at TCS delivering CI/CD automation, Kubernetes-based container orchestration, and cloud infrastructure management for Jaguar Land Rover. AWS Certified Solutions Architect – Associate & Microsoft Azure Developer Associate with expertise in GitOps, DevSecOps, Infrastructure as Code (IaC), SRE practices, and Agile/Scrum delivery across multi-cloud environments (AWS, Azure, GCP).
           </p>
           
           <div className="flex flex-wrap gap-4 mb-10">
@@ -55,8 +55,8 @@ export function Hero() {
           </div>
           
           <div className="flex items-center gap-6">
-            <SocialLink href="https://github.com/RahulVaranasi" icon={<Github className="w-6 h-6" />} label="GitHub" />
-            <SocialLink href="https://linkedin.com/in/RahulVaranasi" icon={<Linkedin className="w-6 h-6" />} label="LinkedIn" />
+            <SocialLink href="https://github.com/VaranasiRahul" icon={<Github className="w-6 h-6" />} label="GitHub" />
+            <SocialLink href="https://linkedin.com/in/VaranasiRahul" icon={<Linkedin className="w-6 h-6" />} label="LinkedIn" />
             <SocialLink href="mailto:rahulvaranasi04@gmail.com" icon={<Mail className="w-6 h-6" />} label="Email" />
           </div>
         </motion.div>
@@ -75,8 +75,8 @@ export function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold mb-1">Certified</h3>
-              <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">AWS Solutions Architect Associate & Practitioner</p>
+              <h3 className="text-lg font-bold mb-1">4x Certified</h3>
+              <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">AWS SAA-C03 · AWS CCP · Azure AZ-204 · Azure AI-900</p>
             </div>
             <div className="bg-card/40 backdrop-blur-md p-6 rounded-2xl border border-indigo-500/20 shadow-xl hover-elevate transition-all duration-500 rotate-3 hover:rotate-0 mt-8">
               <div className="h-12 w-12 rounded-xl bg-indigo-500/20 flex items-center justify-center mb-4 border border-indigo-500/30">
@@ -85,7 +85,7 @@ export function Hero() {
                 </svg>
               </div>
               <h3 className="text-lg font-bold mb-1 text-indigo-100">Education</h3>
-              <p className="text-sm text-indigo-300/80">B.Tech CSE @ GITAM University</p>
+              <p className="text-sm text-indigo-300/80">B.Tech CSE @ GITAM University, Vizag</p>
             </div>
             <div className="bg-gradient-to-r from-primary/10 to-indigo-500/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-xl hover-elevate transition-all duration-500 -rotate-2 hover:rotate-0 col-span-2 mx-auto max-w-[80%]">
               <div className="flex items-center gap-4">
@@ -94,7 +94,7 @@ export function Hero() {
                 </div>
                 <div>
                   <h3 className="font-bold text-white">Currently at TCS</h3>
-                  <p className="text-xs text-green-400/90 font-medium">Platform DevOps Engineer (JLR)</p>
+                  <p className="text-xs text-green-400/90 font-medium">DevOps Engineer · Jaguar Land Rover</p>
                 </div>
               </div>
             </div>

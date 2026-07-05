@@ -1,7 +1,7 @@
 import { skillsData } from "@/lib/static-data";
 import { SectionHeading } from "@/components/section-heading";
 import { motion } from "framer-motion";
-import { Server, Code, Globe, Terminal, Database, Cloud } from "lucide-react";
+import { Server, Code, Globe, Terminal, Database, Cloud, Shield, GitBranch, Monitor, Layers } from "lucide-react";
 
 export function Skills() {
   const skills = skillsData;
@@ -10,11 +10,16 @@ export function Skills() {
   // Mapping categories to icons for visual interest
   const getIcon = (category: string) => {
     const lower = category.toLowerCase();
-    if (lower.includes("frontend")) return <Globe className="w-6 h-6" />;
-    if (lower.includes("backend")) return <Server className="w-6 h-6" />;
-    if (lower.includes("devops") || lower.includes("cloud")) return <Cloud className="w-6 h-6" />;
+    if (lower.includes("cloud")) return <Cloud className="w-6 h-6" />;
+    if (lower.includes("container") || lower.includes("orchestration")) return <Layers className="w-6 h-6" />;
+    if (lower.includes("ci/cd") || lower.includes("release")) return <GitBranch className="w-6 h-6" />;
+    if (lower.includes("infrastructure") || lower.includes("iac")) return <Server className="w-6 h-6" />;
+    if (lower.includes("security") || lower.includes("devsecops")) return <Shield className="w-6 h-6" />;
+    if (lower.includes("monitoring") || lower.includes("observability") || lower.includes("sre")) return <Monitor className="w-6 h-6" />;
+    if (lower.includes("scripting") || lower.includes("automation")) return <Terminal className="w-6 h-6" />;
     if (lower.includes("database")) return <Database className="w-6 h-6" />;
-    if (lower.includes("tools")) return <Terminal className="w-6 h-6" />;
+    if (lower.includes("frontend")) return <Globe className="w-6 h-6" />;
+    if (lower.includes("agile") || lower.includes("collaboration")) return <Code className="w-6 h-6" />;
     return <Code className="w-6 h-6" />;
   };
 
@@ -23,7 +28,7 @@ export function Skills() {
       <div className="container-padding">
         <SectionHeading 
           title="Technical Expertise" 
-          subtitle="My diverse stack of languages, frameworks, and tools tailored for modern web development and reliable infrastructure."
+          subtitle="A comprehensive stack spanning cloud platforms, CI/CD, containers, DevSecOps, observability, and scripting — tailored for modern DevOps and platform engineering."
         />
 
         {isLoading ? (
