@@ -561,18 +561,6 @@ jobs:
       deployments: write
 
     steps:
-      - name: "📥 Checkout"
-        uses: actions/checkout@v4
-
-      - name: "📦 Setup Node.js ${{ env.NODE_VERSION }}"
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: "npm"
-
-      - name: "📥 Install dependencies"
-        run: npm ci --prefer-offline
-
       - name: "⬇️ Download build artifact"
         uses: actions/download-artifact@v4
         with:
@@ -581,15 +569,58 @@ jobs:
 
       - name: "📋 Verify build artifact"
         run: |
-          echo "Build artifact contents:"
+          echo "=== Build artifact contents ==="
           ls -la dist/public/
+          echo ""
+          echo "=== Checking for index.html ==="
+          if [ ! -f dist/public/index.html ]; then
+            echo "ERROR: index.html not found in dist/public/"
+            exit 1
+          fi
+          echo "✅ index.html found"
           echo "Total size: $(du -sh dist/public | cut -f1)"
 
-      - name: "🚀 Deploy to Netlify"
-        id: deploy
-        uses: netlify/actions/cli@master
+      - name: "📦 Setup Node.js ${{ env.NODE_VERSION }}"
+        uses: actions/setup-node@v4
         with:
-          args: deploy --dir=dist/public --prod --message="Deploy ${{ needs.build.outputs.build_sha }} — run #${{ github.run_number }}"
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: "🚀 Deploy to Netlify (via CLI)"
+        id: deploy
+        run: |
+          # Install Netlify CLI
+          npm install -g netlify-cli@latest
+          
+          echo "Netlify CLI version: $(netlify --version)"
+          echo "Deploying dist/public/ to Netlify site: $NETLIFY_SITE_ID"
+          echo ""
+          
+          # Deploy pre-built files to Netlify
+          # --dir: the directory containing the built files
+          # --prod: deploy to production (not a draft deploy)
+          # --message: deploy message shown in Netlify dashboard
+          DEPLOY_OUTPUT=$(netlify deploy \
+            --dir=dist/public \
+            --prod \
+            --site=$NETLIFY_SITE_ID \
+            --auth=$NETLIFY_AUTH_TOKEN \
+            --message="GH Actions #${{ github.run_number }} — ${{ needs.build.outputs.build_sha }}" \
+            --json 2>&1 || true)
+          
+          echo "Deploy output: $DEPLOY_OUTPUT"
+          
+          # Extract URL from JSON output
+          DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | python3 -c "
+import json, sys
+try:
+    data = json.load(sys.stdin)
+    print(data.get('deploy_url', data.get('url', 'https://rahulvaranasi-portfolio.netlify.app')))
+except:
+    print('https://rahulvaranasi-portfolio.netlify.app')
+" 2>/dev/null || echo 'https://rahulvaranasi-portfolio.netlify.app')
+          
+          echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
+          echo "Deploy URL: $DEPLOY_URL"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -601,6 +632,7 @@ jobs:
           echo "| Field | Value |" >> $GITHUB_STEP_SUMMARY
           echo "|---|---|" >> $GITHUB_STEP_SUMMARY
           echo "| **URL** | [rahulvaranasi-portfolio.netlify.app](https://rahulvaranasi-portfolio.netlify.app) |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Deploy URL** | ${{ steps.deploy.outputs.deploy_url }} |" >> $GITHUB_STEP_SUMMARY
           echo "| **Commit** | \`${{ needs.build.outputs.build_sha }}\` |" >> $GITHUB_STEP_SUMMARY
           echo "| **Build #** | \`${{ github.run_number }}\` |" >> $GITHUB_STEP_SUMMARY
           echo "| **Deployed by** | \`${{ github.actor }}\` |" >> $GITHUB_STEP_SUMMARY
