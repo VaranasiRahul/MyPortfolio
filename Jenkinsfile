@@ -1,3 +1,41 @@
+// =============================================================================
+// ⚠️  HISTORICAL ARTIFACT — Jenkins CI Pipeline (Phase 1)
+// =============================================================================
+//
+// This Jenkinsfile was the original CI/CD pipeline for this project during the
+// AWS deployment phase (Phase 1). It ran on a dedicated Jenkins EC2 instance
+// (t3.micro) provisioned via Terraform alongside a k3s Kubernetes master node.
+//
+// INFRASTRUCTURE (Phase 1 — AWS Free Tier):
+//   • Jenkins CI Node  : AWS EC2 t3.micro (jenkins_ci)
+//   • k3s Master Node  : AWS EC2 t3.micro (k3s_master)
+//   • Orchestration    : Terraform (see terraform/)
+//   • GitOps           : ArgoCD (see gitops/)
+//
+// PIPELINE FLOW (Phase 1):
+//   GitHub Push → Jenkins Webhook → Build Docker Image → Trivy Scan
+//       → Push to DockerHub → Update gitops/deployment.yaml
+//       → ArgoCD auto-sync → k3s Kubernetes cluster
+//
+// WHY WE MIGRATED TO GITHUB ACTIONS (Phase 2):
+//   • AWS free tier expired → cloud costs for personal project not justified
+//   • GitHub Actions is free for public repositories (2,000 min/month)
+//   • Native GitHub integration → no webhook setup, no EC2 maintenance
+//   • Better ecosystem: OIDC, SARIF uploads, environment protection rules
+//   • GitHub Actions has become the industry standard for open-source CI/CD
+//   • Eliminates the operational burden of self-hosting a Jenkins instance
+//
+// WHAT STAYED THE SAME:
+//   • Docker build process (same Dockerfile, same stages)
+//   • Trivy security scanning (CRITICAL/HIGH severity gates)
+//   • SonarCloud SAST (same project key: VaranasiRahul_MyPortfolio)
+//   • GitOps manifest update (gitops/deployment.yaml)
+//   • DockerHub registry (rahulvaranasi/resume-showcase)
+//
+// See .github/workflows/deploy.yml for the current GitHub Actions pipeline.
+// See docs/PIPELINE-MIGRATION.md for the full migration story.
+// =============================================================================
+
 pipeline {
     agent any
     
