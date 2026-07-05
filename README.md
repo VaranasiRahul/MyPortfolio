@@ -193,3 +193,5 @@ For issues, check:
 2. k3s logs: `kubectl logs -n kube-system`
 3. Jenkins console output
 4. ArgoCD UI application status
+
+
